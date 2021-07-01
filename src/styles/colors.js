@@ -1,10 +1,20 @@
-export const PRIMARY = "#FD7A5C";
-export const SECONDARY = "#77829E";
-export const PLACEHOLDER = "#ADB6CC";
-export const BG = "#F2F4F7";
-export const WHITE = "#FFFFFF";
-export const WHITE_TRANSPARENT = "rgba(255, 255, 255, 0.6)";
-export const BLACK = "#2E282A";
-export const BLUE = "#324376";
-export const GRAY = "#999999";
-export const TRANSPARENT = "transparent";
+import React from 'react'
+import {LinearGradient} from 'expo-linear-gradient'
+
+export const WHITE = '#FFFFFF'
+
+export const BG_GRADIENT = () => (
+    <LinearGradient
+        colors={['#1DE5E2', '#B588F7']}
+        locations={[0.1, 1]}
+        start={{x: 0.1, y: 0.1}}
+        end={{x: 1, y: 0.9}}
+        style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+        }}
+    />
+)
