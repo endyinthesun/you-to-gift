@@ -1,6 +1,6 @@
-import React from 'react'
-import {SafeAreaView, Text, TouchableHighlight, View} from 'react-native'
-import {BG_GRADIENT} from '_styles/colors'
+import React from 'react';
+import {SafeAreaView, Text, TouchableHighlight, View} from 'react-native';
+import {BG_GRADIENT} from '_styles/colors';
 
 export default function RafflesScreen({navigation}) {
     return (
@@ -10,5 +10,5 @@ export default function RafflesScreen({navigation}) {
                 <Text>Go to home</Text>
             </TouchableHighlight>
         </View>
-    )
+    );
 }

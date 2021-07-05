@@ -1,9 +1,9 @@
-import React from 'react'
-import {StyleSheet} from 'react-native'
-import {LinearGradient} from 'expo-linear-gradient'
+import React from 'react';
+import {StyleSheet} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
 
-export const SECONDARY = '#F2F6F7'
-export const WHITE = '#FFFFFF'
+export const SECONDARY = '#F2F6F7';
+export const WHITE = '#FFFFFF';
 
 export const BG_GRADIENT = () => (
     <LinearGradient
@@ -13,4 +13,4 @@ export const BG_GRADIENT = () => (
         end={{x: 1, y: 0.9}}
         style={StyleSheet.absoluteFill}
     />
-)
+);

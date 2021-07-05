@@ -1,23 +1,21 @@
-
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "_assets/*": ["./assets/*"],
-      "_components/*": ["./src/components/*"],
-      "_atoms/*": ["./src/components/atoms/*"],
-      "_molecules/*": ["./src/components/molecules/*"],
-      "_organisms/*": ["./src/components/organisms/*"],
-      "_routes/*": ["./src/routes/*"],
-      "_screens/*": ["./src/screens/*"],
-      "_services/*": ["./src/services/*"],
-      "_styles/*": ["./src/styles/*"],
-      "_utils/*": ["./src/utils/*"],
-      "_icons/*": ["./assets/icons/*"],
-      "_images/*": ["./assets/images/*"],
-      "_store": ["./src/store/*"]
-
-    }
-  },
-  "exclude": ["node_modules", "dist"]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "_assets/*": ["./assets/*"],
+            "_components/*": ["./src/components/*"],
+            "_atoms/*": ["./src/components/atoms/*"],
+            "_molecules/*": ["./src/components/molecules/*"],
+            "_organisms/*": ["./src/components/organisms/*"],
+            "_routes/*": ["./src/routes/*"],
+            "_screens/*": ["./src/screens/*"],
+            "_services/*": ["./src/services/*"],
+            "_styles/*": ["./src/styles/*"],
+            "_utils/*": ["./src/utils/*"],
+            "_icons/*": ["./assets/icons/*"],
+            "_images/*": ["./assets/images/*"],
+            "_store": ["./src/store/*"]
+        }
+    },
+    "exclude": ["node_modules", "dist"]
 }

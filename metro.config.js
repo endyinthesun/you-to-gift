@@ -1,9 +1,9 @@
-const {getDefaultConfig} = require('expo/metro-config')
+const {getDefaultConfig} = require('expo/metro-config');
 
 module.exports = (async () => {
     const {
         resolver: {sourceExts, assetExts},
-    } = await getDefaultConfig(__dirname)
+    } = await getDefaultConfig(__dirname);
     return {
         transformer: {
             babelTransformerPath: require.resolve(
@@ -14,5 +14,5 @@ module.exports = (async () => {
             assetExts: assetExts.filter(ext => ext !== 'svg'),
             sourceExts: [...sourceExts, 'svg'],
         },
-    }
-})()
+    };
+})();

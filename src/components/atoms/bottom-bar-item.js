@@ -1,25 +1,25 @@
 //modules
-import React, {useRef, useEffect} from 'react'
-import {StyleSheet, Easing, Animated, Pressable} from 'react-native'
+import React, {useRef, useEffect} from 'react';
+import {StyleSheet, Easing, Animated, Pressable} from 'react-native';
 
 //styles
-import {SECONDARY, WHITE} from '_styles/colors'
+import {SECONDARY, WHITE} from '_styles/colors';
 
 export default function BottomBarItem({isFocused, options, onPress}) {
-    const menuItemTranslateY = useRef(new Animated.Value(0)).current
+    const menuItemTranslateY = useRef(new Animated.Value(0)).current;
 
-    const {icon, iconActive} = options
-    const Icon = isFocused ? iconActive : icon
+    const {icon, iconActive} = options;
+    const Icon = isFocused ? iconActive : icon;
     const menuItemTranslateYConf = {
         duration: 150,
         toValue: isFocused ? -35 : 0,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true,
-    }
+    };
 
     useEffect(() => {
-        Animated.timing(menuItemTranslateY, menuItemTranslateYConf).start()
-    }, [isFocused])
+        Animated.timing(menuItemTranslateY, menuItemTranslateYConf).start();
+    }, [isFocused]);
     return (
         <Animated.View
             style={[
@@ -43,7 +43,7 @@ export default function BottomBarItem({isFocused, options, onPress}) {
                 {Icon}
             </Pressable>
         </Animated.View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-})
+});

@@ -1,19 +1,19 @@
 //modules
-import React from 'react'
-import {View} from 'react-native'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import {NavigationContainer} from '@react-navigation/native'
-import {SafeAreaView} from 'react-native-safe-area-context'
+import React from 'react';
+import {View} from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 //SVGs
-import GiftIcon from '_icons/bottom-bar/gift.svg'
-import GiftActiveIcon from '_icons/bottom-bar/gift-active.svg'
-import StarIcon from '_icons/bottom-bar/star.svg'
-import StarActiveIcon from '_icons/bottom-bar/star-active.svg'
-import GearIcon from '_icons/bottom-bar/gear.svg'
-import GearActiveIcon from '_icons/bottom-bar/gear-active.svg'
-import UserIcon from '_icons/bottom-bar/user.svg'
-import UserActiveIcon from '_icons/bottom-bar/user-active.svg'
+import GiftIcon from '_icons/bottom-bar/gift.svg';
+import GiftActiveIcon from '_icons/bottom-bar/gift-active.svg';
+import StarIcon from '_icons/bottom-bar/star.svg';
+import StarActiveIcon from '_icons/bottom-bar/star-active.svg';
+import GearIcon from '_icons/bottom-bar/gear.svg';
+import GearActiveIcon from '_icons/bottom-bar/gear-active.svg';
+import UserIcon from '_icons/bottom-bar/user.svg';
+import UserActiveIcon from '_icons/bottom-bar/user-active.svg';
 
 //Screens
 import {
@@ -21,14 +21,14 @@ import {
     FavoritesScreen,
     SettingsScreen,
     ProfileScreen,
-} from '_screens/index'
+} from '_screens/index';
 
 //components
-import {BottomBar} from '_organisms/index'
-import {BG_GRADIENT} from '_styles/colors'
+import {BottomBar} from '_organisms/index';
+import {BG_GRADIENT} from '_styles/colors';
 
 export default function RootRouter() {
-    const TabNav = createBottomTabNavigator()
+    const TabNav = createBottomTabNavigator();
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
@@ -78,5 +78,5 @@ export default function RootRouter() {
                 </NavigationContainer>
             </View>
         </SafeAreaView>
-    )
+    );
 }
