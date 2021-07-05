@@ -1,5 +1,2 @@
-// import Component from "./btn";
-//
-// export {
-//   Component
-// };
+import BottomBarItem from '_atoms/bottom-bar-item'
+export {BottomBarItem}

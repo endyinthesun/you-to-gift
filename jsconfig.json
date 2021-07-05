@@ -8,13 +8,13 @@
       "_atoms/*": ["./src/components/atoms/*"],
       "_molecules/*": ["./src/components/molecules/*"],
       "_organisms/*": ["./src/components/organisms/*"],
-      "_navigations/*": ["./src/navigations/*"],
+      "_routes/*": ["./src/routes/*"],
       "_screens/*": ["./src/screens/*"],
       "_services/*": ["./src/services/*"],
       "_styles/*": ["./src/styles/*"],
       "_utils/*": ["./src/utils/*"],
-      "_icons/*": ["./src/assets/icons/*"],
-      "_images/*": ["./src/assets/images/*"],
+      "_icons/*": ["./assets/icons/*"],
+      "_images/*": ["./assets/images/*"],
       "_store": ["./src/store/*"]
 
     }

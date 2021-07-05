@@ -7,7 +7,7 @@
     "icon": "./assets/images/expo/icon.png",
     "splash": {
       "image": "./assets/images/expo/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -17,16 +17,34 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devseonet.youtogift"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/expo/adaptive-icon.png",
         "backgroundColor": "#B588F7"
-      }
+      },
+      "package": "com.devseonet.youtogift"
     },
     "web": {
       "favicon": "./assets/images/expo/favicon.png"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg"
+      ]
     }
   }
 }

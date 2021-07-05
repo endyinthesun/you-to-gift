@@ -5,11 +5,14 @@ import {useFonts} from 'expo-font'
 import {
     SafeAreaProvider,
     initialWindowMetrics,
-    SafeAreaView,
 } from 'react-native-safe-area-context'
+
+//routes
+import RootRouter from '_routes/app-router'
+
+//styles
 import {FONT_ROBOTO_500, FONT_ROBOTO_700} from '_styles/typography'
-import {BG_GRADIENT} from '_styles/colors'
-import {LinearGradient} from 'expo-linear-gradient'
+import {BG_GRADIENT, WHITE} from '_styles/colors'
 
 export default function App() {
     let [fontsLoaded] = useFonts({
@@ -21,12 +24,10 @@ export default function App() {
     })
     if (!fontsLoaded) return <Text>no fonts</Text>
     return (
-        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-            <SafeAreaView style={{flex: 1}}>
-                <View style={styles.container}>
-                    <BG_GRADIENT />
-                </View>
-            </SafeAreaView>
+        <SafeAreaProvider
+            initialMetrics={initialWindowMetrics}
+            style={styles.container}>
+            <RootRouter />
         </SafeAreaProvider>
     )
 }
@@ -37,15 +38,6 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        // alignItems: 'center',
-        // justifyContent: 'center',
-        // backgroundColor: 'orange',
-    },
-    background: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
+        // backgroundColor: 'red',
     },
 })

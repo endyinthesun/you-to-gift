@@ -1,5 +1,2 @@
-// import Component from "./btn";
-//
-// export {
-//   Component
-// };
+import BottomBar from '_organisms/bottom-bar'
+export {BottomBar}

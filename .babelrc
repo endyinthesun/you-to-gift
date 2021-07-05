@@ -8,12 +8,12 @@
         "_atoms": "./src/components/atoms",
         "_molecules": "./src/components/molecules",
         "_organisms": "./src/components/organisms",
-        "_navigations": "./src/navigations",
+        "_routes": "./src/routes",
         "_screens": "./src/screens",
         "_services": "./src/services",
         "_styles": "./src/styles",
-        "_images": "./src/assets/images",
-        "_icons": "./src/assets/icons",
+        "_images": "./assets/images",
+        "_icons": "./assets/icons",
         "_store": "./src/store"
       }
     }]
