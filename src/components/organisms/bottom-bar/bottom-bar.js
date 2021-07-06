@@ -1,18 +1,13 @@
-import React, {useState, useRef} from 'react';
-import {
-    StyleSheet,
-    View,
-    Animated,
-    Easing,
-    useWindowDimensions,
-} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {SECONDARY, WHITE} from '_styles/colors';
+import React, {useRef} from 'react';
+import {View, Animated, Easing, useWindowDimensions} from 'react-native';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
-import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/spacing';
 import BottomBarItem from '_atoms/bottom-bar-item';
+
+//style
+import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/global';
+import {styles} from './styles';
 
 export default function BottomBar({state, descriptors, navigation}) {
     const {Value, timing} = Animated;
@@ -80,20 +75,3 @@ export default function BottomBar({state, descriptors, navigation}) {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    navContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        height: 77,
-    },
-    nav: {
-        height: 78,
-        paddingHorizontal: PADDING_HORIZONTAL_TAB_MENU,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-    },
-});

@@ -1,6 +1,6 @@
 //modules
-import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {Text} from 'react-native';
 import {useFonts} from 'expo-font';
 import {
     SafeAreaProvider,
@@ -11,10 +11,13 @@ import {
 import RootRouter from '_routes/app-router';
 
 //styles
-import {FONT_ROBOTO_500, FONT_ROBOTO_700} from '_styles/typography';
-import {BG_GRADIENT, WHITE} from '_styles/colors';
+import {initGlobalVar} from '_styles/global';
 
 export default function App() {
+    useEffect(() => {
+        initGlobalVar();
+    }, []);
+
     let [fontsLoaded] = useFonts({
         RobotoThin: require('_assets/fonts/Roboto-Thin.ttf'),
         RobotoLight: require('_assets/fonts/Roboto-Light.ttf'),
@@ -26,18 +29,8 @@ export default function App() {
     return (
         <SafeAreaProvider
             initialMetrics={initialWindowMetrics}
-            style={styles.container}>
+            style={{flex: 1}}>
             <RootRouter />
         </SafeAreaProvider>
     );
 }
-
-const styles = StyleSheet.create({
-    text: {
-        fontFamily: FONT_ROBOTO_700,
-    },
-    container: {
-        flex: 1,
-        // backgroundColor: 'red',
-    },
-});

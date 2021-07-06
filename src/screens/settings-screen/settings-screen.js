@@ -1,11 +1,14 @@
+//modules
 import React from 'react';
-import {Text, View, TouchableHighlight} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {BG_GRADIENT} from '_styles/colors';
+import {Text, View} from 'react-native';
+
+//components
+import {Header} from '_organisms/index';
 
 export default function SettingsScreen() {
     return (
-        <View style={{flex: 1, backgroundColor: 'transparent'}}>
+        <View style={{flex: 1}}>
+            <Header titleArr={['настройки', 'розыгрышей']} />
             <Text>Hello, its setting screen</Text>
         </View>
     );

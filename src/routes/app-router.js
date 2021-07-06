@@ -1,9 +1,10 @@
 //modules
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {LinearGradient} from 'expo-linear-gradient';
 
 //SVGs
 import GiftIcon from '_icons/bottom-bar/gift.svg';
@@ -25,7 +26,6 @@ import {
 
 //components
 import {BottomBar} from '_organisms/index';
-import {BG_GRADIENT} from '_styles/colors';
 
 export default function RootRouter() {
     const TabNav = createBottomTabNavigator();
@@ -33,7 +33,13 @@ export default function RootRouter() {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
             <View style={{flex: 1}}>
-                <BG_GRADIENT />
+                <LinearGradient
+                    colors={['#1DE5E2', '#B588F7']}
+                    locations={[0.1, 1]}
+                    start={{x: 0.1, y: 0.1}}
+                    end={{x: 1, y: 0.9}}
+                    style={StyleSheet.absoluteFill}
+                />
                 <NavigationContainer>
                     <TabNav.Navigator
                         sceneContainerStyle={{backgroundColor: 'transparent'}}

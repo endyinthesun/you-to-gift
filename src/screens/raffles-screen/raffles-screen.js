@@ -1,14 +1,20 @@
+//modules
 import React from 'react';
-import {SafeAreaView, Text, TouchableHighlight, View} from 'react-native';
-import {BG_GRADIENT} from '_styles/colors';
+import {Text, View} from 'react-native';
 
-export default function RafflesScreen({navigation}) {
+//components
+import {Header} from '_organisms/index';
+
+export default function RafflesScreen({route, navigation}) {
     return (
         <View style={{flex: 1}}>
+            <Header
+                titleArr={['Актуальные розыгрыши', 'Saint-Petersburg, Russia']}
+                relevantRaffles
+                iconType={'settings'}
+                onPress={() => console.log('hello')}
+            />
             <Text>Screen: Login</Text>
-            <TouchableHighlight onPress={() => navigation.navigate('Main')}>
-                <Text>Go to home</Text>
-            </TouchableHighlight>
         </View>
     );
 }
