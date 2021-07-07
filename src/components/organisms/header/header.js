@@ -13,6 +13,7 @@ import {styles} from './styles';
 // relevantRaffles - two text block in column, one of them - link (true, false)
 // screenRaffle - two text block in row, second block with bold font style
 // iconType = 'back', 'filter', 'settings'
+
 export default function Header({
     titleArr,
     relevantRaffles = false,

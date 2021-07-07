@@ -1,7 +1,19 @@
+import React from 'react';
+import {LinearGradient} from 'expo-linear-gradient';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {StyleSheet} from 'react-native';
 
 //outside values
 export const PADDING_HORIZONTAL_TAB_MENU = 16;
+export const BG_GRADIENT = () => (
+    <LinearGradient
+        colors={['#1DE5E2', '#B588F7']}
+        locations={[0.1, 1]}
+        start={{x: 0.1, y: 0.1}}
+        end={{x: 1, y: 0.9}}
+        style={StyleSheet.absoluteFill}
+    />
+);
 
 export const initGlobalVar = () => {
     EStyleSheet.build({
@@ -30,8 +42,14 @@ export const initGlobalVar = () => {
         //colors
         $SECONDARY: '#F2F6F7',
         $WHITE: '#FFFFFF',
+        $GRAY: '#E4E8E9',
+        $TRANSPARENT: 'transparent',
+        $WHITE_TRANSPARENT: 'rgba(255,255,255, 0.3)',
+        $BLUE_TRANSPARENT: 'rgba(33, 60, 154, 0.2)',
 
         //spacing
         $PADDING_HORIZONTAL_TAB_MENU: PADDING_HORIZONTAL_TAB_MENU,
+        $PADDING_HORIZONTAL_CONTAINER: 22,
+        $PADDING_VERTICAL_CONTAINER: 30,
     });
 };

@@ -1,5 +1,3 @@
-// import Component from "./btn";
-//
-// export {
-//     Component
-// };
+import Categories from '_molecules/categories';
+import Relevance from '_molecules/relevance';
+export {Categories, Relevance};
