@@ -4,17 +4,29 @@ import {Text, View} from 'react-native';
 
 //components
 import {Header} from '_organisms/index';
+import {RaffleItem} from '_molecules/index';
+
+//styles
+import {styles} from '_styles/content-container';
+
+//store
+import {otherStore} from '_store/index';
 
 export default function RafflesScreen({route, navigation}) {
     return (
         <View style={{flex: 1}}>
             <Header
-                titleArr={['Актуальные розыгрыши', 'Saint-Petersburg, Russia']}
-                relevantRaffles
+                titleKey={'actual_raffles'}
+                actualRaffles={'Saint-Petersburg'}
                 iconType={'settings'}
-                onPress={() => console.log('hello')}
+                onPress={() => {
+                    navigation.navigate('Settings');
+                    otherStore.setBottomTabIndex(2);
+                }}
             />
-            <Text>Screen: Login</Text>
+            <View style={styles.contentContainer}>
+                <RaffleItem />
+            </View>
         </View>
     );
 }

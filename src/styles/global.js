@@ -14,14 +14,24 @@ export const BG_GRADIENT = () => (
         style={StyleSheet.absoluteFill}
     />
 );
+export const RAFFLE_ITEM_GRADIENT = () => (
+    <LinearGradient
+        colors={['#FFC107', '#F44336', '#9C27B0']}
+        locations={[0, 0.2, 1]}
+        start={{x: 0.1, y: 0.1}}
+        end={{x: 1, y: 0.9}}
+        style={{height: 4, position: 'absolute', bottom: 0, left: 0, right: 0}}
+    />
+);
 
 export const initGlobalVar = () => {
     EStyleSheet.build({
         $rem: 16,
         $fontColor: '#484848',
+        $fontInputColor: '#B0B0B0',
         $fontColorLink: '#1FC1EF',
         $bgColor: '#e6e6e6',
-
+        $authBtnColor: '#BFD4DF',
         //font families
         $FONT_ROBOTO_100: 'RobotoThin',
         $FONT_ROBOTO_300: 'RobotoLight',
@@ -43,6 +53,7 @@ export const initGlobalVar = () => {
         $SECONDARY: '#F2F6F7',
         $WHITE: '#FFFFFF',
         $GRAY: '#E4E8E9',
+        $DARK_GRAY: '#484848',
         $TRANSPARENT: 'transparent',
         $WHITE_TRANSPARENT: 'rgba(255,255,255, 0.3)',
         $BLUE_TRANSPARENT: 'rgba(33, 60, 154, 0.2)',
@@ -51,5 +62,6 @@ export const initGlobalVar = () => {
         $PADDING_HORIZONTAL_TAB_MENU: PADDING_HORIZONTAL_TAB_MENU,
         $PADDING_HORIZONTAL_CONTAINER: 22,
         $PADDING_VERTICAL_CONTAINER: 30,
+        $LETTER_SPACING: 0.5,
     });
 };

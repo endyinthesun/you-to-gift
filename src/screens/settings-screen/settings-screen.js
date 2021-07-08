@@ -3,13 +3,20 @@ import React from 'react';
 import {Text, View} from 'react-native';
 
 //components
-import {Header} from '_organisms/index';
+import {CityBlock, Header, LangBlock} from '_organisms/index';
 
-export default function SettingsScreen() {
+//styles
+import {styles} from '_styles/content-container';
+
+export default function SettingsScreen({navigation}) {
     return (
         <View style={{flex: 1}}>
-            <Header titleArr={['настройки', 'розыгрышей']} />
-            <Text>Hello, its setting screen</Text>
+            <Header titleKey={'settings_raffles'} />
+
+            <View style={styles.contentContainer}>
+                <LangBlock />
+                <CityBlock />
+            </View>
         </View>
     );
 }

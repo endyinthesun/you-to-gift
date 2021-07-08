@@ -1,5 +1,7 @@
-import React, {useRef} from 'react';
+//modules
+import React, {useRef, useEffect, useState} from 'react';
 import {View, Animated, Easing, useWindowDimensions} from 'react-native';
+import {observer} from 'mobx-react-lite';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
@@ -9,16 +11,18 @@ import BottomBarItem from '_atoms/bottom-bar-item';
 import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/global';
 import {styles} from './styles';
 
-export default function BottomBar({state, descriptors, navigation}) {
-    const {Value, timing} = Animated;
+//store
+import {otherStore} from '_store/index';
+
+export default observer(function BottomBar({state, descriptors, navigation}) {
+    const [stateIndex, setStateIndex] = useState(0);
     const windowWidth = useWindowDimensions().width;
     const widthRoute =
         (windowWidth - PADDING_HORIZONTAL_TAB_MENU * 2) / state.routes.length;
     const startPosition = widthRoute / 2 + PADDING_HORIZONTAL_TAB_MENU - 433;
 
     //animation value
-    const menuTranslateX = useRef(new Value(startPosition)).current;
-
+    const menuTranslateX = useRef(new Animated.Value(startPosition)).current;
     const items = state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const isFocused = state.index === index;
@@ -28,22 +32,9 @@ export default function BottomBar({state, descriptors, navigation}) {
                 target: route.key,
                 canPreventDefault: true,
             });
-
-            const position =
-                widthRoute * index +
-                widthRoute / 2 +
-                PADDING_HORIZONTAL_TAB_MENU -
-                433;
-            const menuTranslateXConf = {
-                duration: 200,
-                toValue: position,
-                easing: Easing.inOut(Easing.ease),
-                useNativeDriver: true,
-            };
-
+            otherStore.setBottomTabIndex(index);
             if (!isFocused && !event.defaultPrevented) {
                 navigation.navigate(route.name);
-                timing(menuTranslateX, menuTranslateXConf).start();
             }
         };
 
@@ -56,6 +47,20 @@ export default function BottomBar({state, descriptors, navigation}) {
             />
         );
     });
+    useEffect(() => {
+        const position =
+            widthRoute * otherStore.bottomTabIndex +
+            widthRoute / 2 +
+            PADDING_HORIZONTAL_TAB_MENU -
+            433;
+        const menuTranslateXConf = {
+            duration: 200,
+            toValue: position,
+            easing: Easing.inOut(Easing.ease),
+            useNativeDriver: true,
+        };
+        Animated.timing(menuTranslateX, menuTranslateXConf).start();
+    }, [otherStore.bottomTabIndex]);
     return (
         <View style={styles.navContainer}>
             <View style={[styles.nav, {width: windowWidth}]}>
@@ -74,4 +79,4 @@ export default function BottomBar({state, descriptors, navigation}) {
             </View>
         </View>
     );
-}
+});

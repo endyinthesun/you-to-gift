@@ -16,6 +16,7 @@
                     "_styles": "./src/styles",
                     "_images": "./assets/images",
                     "_icons": "./assets/icons",
+                    "_locales": "./assets/locales",
                     "_store": "./src/store"
                 }
             }

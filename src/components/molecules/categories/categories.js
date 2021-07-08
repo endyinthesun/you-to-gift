@@ -17,13 +17,15 @@ import {CategoryItem} from '_atoms/index';
 
 //styles
 import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 
 export default function Categories() {
+    const [t] = useTranslation('modal_filter_screen');
     const [category, setCategory] = useState('');
     const categoriesData = [
         {
             name: 'all',
-            title: 'все',
+            title: t('all'),
             key: 1,
         },
         {
@@ -47,7 +49,7 @@ export default function Categories() {
     ];
     return (
         <View>
-            <Text style={styles.headTitle}>Категория</Text>
+            <Text style={styles.headTitle}>{t('category')}</Text>
             <View style={styles.itemsContainer}>
                 {categoriesData.map(props => {
                     const isActive = props.name === category;

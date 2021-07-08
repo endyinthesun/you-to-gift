@@ -1,9 +1,11 @@
 //modules
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useTranslation} from 'react-i18next';
+import {observer} from 'mobx-react-lite';
 
 //SVGs
 import GiftIcon from '_icons/bottom-bar/gift.svg';
@@ -26,6 +28,9 @@ import {
 //components
 import {BottomBar} from '_organisms/index';
 import {BG_GRADIENT} from '_styles/global';
+
+//store
+import {otherStore} from '_store/index';
 
 export default function RootRouter() {
     const TabNav = createBottomTabNavigator();

@@ -1,0 +1,26 @@
+{
+        "header": {
+                "actual_raffles": "актуальні розіграші",
+                "favorite_raffles": "обрані розіграші",
+                "settings_raffles": "налаштування розіграшів",
+                "account_authorization": "авторизація акаунта",
+                "raffles_filter": "фільтр розіграшів"
+        },
+        "modal_filter_screen" : {
+                "category": "категорія",
+                "all": "все",
+                "active": "активні",
+                "waiting": "очікують завершення",
+                "completed": "завершені",
+                "relevance": "актуальність",
+                "show": "показати"
+        },
+        "settings_screen" : {
+                "enter_your_city": "вкажіть ваше місто"
+        },
+        "profile_screen": {
+                "sign_in_instagram": "увійти з instagram",
+                "sign_in_facebook": "увійти з facebook",
+                "sign_out": "вийти з акаунта"
+        }
+}

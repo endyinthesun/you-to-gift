@@ -1,0 +1,26 @@
+{
+        "header": {
+                "actual_raffles": "актуальные розыгрыши",
+                "favorite_raffles": "избранные розыгрыши",
+                "settings_raffles": "настройки розыгрышей",
+                "account_authorization": "авторизация аккаунта",
+                "raffles_filter": "фильтр розыгрышей"
+        },
+        "modal_filter_screen" : {
+                "category": "категория",
+                "all": "все",
+                "active": "активные",
+                "waiting": "ожидают завершения",
+                "completed": "завершенные",
+                "relevance": "актуальность",
+                "show": "показать"
+        },
+        "settings_screen" : {
+                "enter_your_city": "укажите ваш город"
+        },
+        "profile_screen": {
+                "sign_in_instagram": "войти c instagram",
+                "sign_in_facebook": "войти c facebook",
+                "sign_out": "выйти из аккаунта"
+        }
+}

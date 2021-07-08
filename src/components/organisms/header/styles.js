@@ -12,6 +12,7 @@ export const styles = EStyleSheet.create({
         color: '$fontColor',
         textTransform: 'uppercase',
         fontSize: '$FONT_SIZE_18',
+        letterSpacing: '$LETTER_SPACING',
     },
     headerTitleBold: {
         fontFamily: '$FONT_ROBOTO_500',

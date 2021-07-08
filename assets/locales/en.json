@@ -1,0 +1,26 @@
+{
+        "header": {
+                "actual_raffles": "actual raffles",
+                "favorite_raffles": "favorite raffles",
+                "settings_raffles": "settings raffles",
+                "account_authorization": "account authorization",
+                "raffles_filter": "raffles filter"
+        },
+        "modal_filter_screen" : {
+                "category": "category",
+                "all": "all",
+                "active": "active",
+                "waiting": "waiting completion",
+                "completed": "completed",
+                "relevance": "relevance",
+                "show": "show"
+        },
+        "settings_screen" : {
+                "enter_your_city": "enter your city"
+        },
+        "profile_screen": {
+                "sign_in_instagram": "sign in to instagram",
+                "sign_in_facebook": "sign in to facebook",
+                "sign_out": "sign out"
+        }
+}

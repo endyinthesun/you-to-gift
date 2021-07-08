@@ -1,11 +1,14 @@
 //modules
 import React, {useEffect} from 'react';
-import {Text} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {useFonts} from 'expo-font';
 import {
     SafeAreaProvider,
     initialWindowMetrics,
 } from 'react-native-safe-area-context';
+import {useTranslation} from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {observer} from 'mobx-react-lite';
 
 //routes
 import RootRouter from '_routes/app-router';
@@ -13,10 +16,32 @@ import RootRouter from '_routes/app-router';
 //styles
 import {initGlobalVar} from '_styles/global';
 
-export default function App() {
+//store
+import {otherStore} from '_store/index';
+
+export default observer(function App() {
+    const [t, i18n] = useTranslation();
+
     useEffect(() => {
+        //styles const
         initGlobalVar();
+
+        //check async storage
+        const checkAsync = async () => {
+            const value = await AsyncStorage.getItem('@lang');
+            if (value !== undefined && value !== null) {
+                otherStore.changeLang(value);
+            } else {
+                otherStore.changeLang('ru');
+            }
+        };
+        checkAsync();
     }, []);
+
+    useEffect(() => {
+        i18n.changeLanguage(otherStore.lang);
+        // console.log('otherStore.lang app --- ', otherStore.lang);
+    }, [otherStore.lang]);
 
     let [fontsLoaded] = useFonts({
         RobotoThin: require('_assets/fonts/Roboto-Thin.ttf'),
@@ -25,12 +50,12 @@ export default function App() {
         RobotoMedium: require('_assets/fonts/Roboto-Medium.ttf'),
         RobotoBold: require('_assets/fonts/Roboto-Bold.ttf'),
     });
-    if (!fontsLoaded) return <Text>no fonts</Text>;
+    if (!fontsLoaded) return <ActivityIndicator />;
     return (
         <SafeAreaProvider
             initialMetrics={initialWindowMetrics}
-            style={{flex: 1}}>
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <RootRouter />
         </SafeAreaProvider>
     );
-}
+});
