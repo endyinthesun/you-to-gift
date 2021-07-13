@@ -4,7 +4,8 @@
                 "favorite_raffles": "favorite raffles",
                 "settings_raffles": "settings raffles",
                 "account_authorization": "account authorization",
-                "raffles_filter": "raffles filter"
+                "raffles_filter": "raffles filter",
+                "raffle": "raffle"
         },
         "modal_filter_screen" : {
                 "category": "category",
@@ -22,5 +23,8 @@
                 "sign_in_instagram": "sign in to instagram",
                 "sign_in_facebook": "sign in to facebook",
                 "sign_out": "sign out"
+        },
+        "raffles_screen": {
+                "followers": "followers"
         }
 }

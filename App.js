@@ -52,9 +52,7 @@ export default observer(function App() {
     });
     if (!fontsLoaded) return <ActivityIndicator />;
     return (
-        <SafeAreaProvider
-            initialMetrics={initialWindowMetrics}
-            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <RootRouter />
         </SafeAreaProvider>
     );

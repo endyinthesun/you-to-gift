@@ -1,11 +1,11 @@
 //modules
 import React, {useEffect} from 'react';
 import {View} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useTranslation} from 'react-i18next';
-import {observer} from 'mobx-react-lite';
 
 //SVGs
 import GiftIcon from '_icons/bottom-bar/gift.svg';
@@ -23,63 +23,79 @@ import {
     FavoritesScreen,
     SettingsScreen,
     ProfileScreen,
+    RaffleScreen,
 } from '_screens/index';
 
 //components
 import {BottomBar} from '_organisms/index';
 import {BG_GRADIENT} from '_styles/global';
 
-//store
-import {otherStore} from '_store/index';
-
 export default function RootRouter() {
     const TabNav = createBottomTabNavigator();
+    const MainStack = createStackNavigator();
+
+    const TabNavScreen = () => (
+        <TabNav.Navigator
+            sceneContainerStyle={{backgroundColor: 'transparent'}}
+            tabBarOptions={{
+                keyboardHidesTabBar: true,
+                headerShown: false,
+            }}
+            tabBar={props => <BottomBar {...props} />}>
+            <TabNav.Screen
+                name="Raffles"
+                component={RafflesScreen}
+                options={{
+                    icon: <GiftIcon />,
+                    iconActive: <GiftActiveIcon />,
+                }}
+            />
+            <TabNav.Screen
+                name="Favorites"
+                component={FavoritesScreen}
+                options={{
+                    icon: <StarIcon />,
+                    iconActive: <StarActiveIcon width={30} height={28} />,
+                }}
+            />
+            <TabNav.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={{
+                    icon: <GearIcon />,
+                    iconActive: <GearActiveIcon />,
+                }}
+            />
+            <TabNav.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={{
+                    icon: <UserIcon />,
+                    iconActive: <UserActiveIcon />,
+                }}
+            />
+        </TabNav.Navigator>
+    );
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <SafeAreaView style={{flex: 1}}>
             <View style={{flex: 1}}>
-                <BG_GRADIENT />
+                {/*<BG_GRADIENT />*/}
                 <NavigationContainer>
-                    <TabNav.Navigator
-                        sceneContainerStyle={{backgroundColor: 'transparent'}}
-                        tabBarOptions={{
-                            keyboardHidesTabBar: true,
+                    <MainStack.Navigator
+                        screenOptions={{
                             headerShown: false,
-                        }}
-                        tabBar={props => <BottomBar {...props} />}>
-                        <TabNav.Screen
-                            name="Raffles"
-                            component={RafflesScreen}
-                            options={{
-                                icon: <GiftIcon />,
-                                iconActive: <GiftActiveIcon />,
-                            }}
+                        }}>
+                        <MainStack.Screen
+                            name={'Raffles'}
+                            component={TabNavScreen}
+                            mode="modal"
                         />
-                        <TabNav.Screen
-                            name="Favorites"
-                            component={FavoritesScreen}
-                            options={{
-                                icon: <StarIcon />,
-                                iconActive: <StarActiveIcon />,
-                            }}
+                        <MainStack.Screen
+                            name={'Raffle'}
+                            component={RaffleScreen}
                         />
-                        <TabNav.Screen
-                            name="Settings"
-                            component={SettingsScreen}
-                            options={{
-                                icon: <GearIcon />,
-                                iconActive: <GearActiveIcon />,
-                            }}
-                        />
-                        <TabNav.Screen
-                            name="Profile"
-                            component={ProfileScreen}
-                            options={{
-                                icon: <UserIcon />,
-                                iconActive: <UserActiveIcon />,
-                            }}
-                        />
-                    </TabNav.Navigator>
+                    </MainStack.Navigator>
                 </NavigationContainer>
             </View>
         </SafeAreaView>

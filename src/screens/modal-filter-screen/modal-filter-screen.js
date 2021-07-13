@@ -9,7 +9,7 @@ import {BG_GRADIENT} from '_styles/global';
 import {Categories, Relevance} from '_molecules/index';
 
 //styles
-import {styles} from '_styles/content-container';
+import {contentContainerStyles} from '_styles/content-container';
 import FilterBtn from '_atoms/filter-btn';
 // import Relevance from "_molecules/relevance";
 
@@ -23,7 +23,7 @@ export default function ModalFilterScreen({onPress}) {
                     iconType={'back'}
                     onPress={onPress}
                 />
-                <View style={styles.contentContainer}>
+                <View style={contentContainerStyles.container}>
                     <BG_GRADIENT />
                     <Categories />
                     <Relevance />

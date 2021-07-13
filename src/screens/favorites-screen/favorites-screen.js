@@ -7,7 +7,8 @@ import {Header} from '_organisms/index';
 import ModalFilterScreen from '_screens/modal-filter-screen';
 
 //styles
-import {styles} from '_styles/content-container';
+import {contentContainerStyles} from '_styles/content-container';
+import {BG_GRADIENT} from '_styles/global';
 
 export default function FavoritesScreen({navigation}) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -18,7 +19,8 @@ export default function FavoritesScreen({navigation}) {
                 iconType={'filter'}
                 onPress={() => setModalVisible(true)}
             />
-            <View style={styles.contentContainer}>
+            <View style={contentContainerStyles.container}>
+                <BG_GRADIENT />
                 <Text>Hello, its setting screen</Text>
             </View>
             <Modal

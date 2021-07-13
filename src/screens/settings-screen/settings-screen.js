@@ -6,14 +6,16 @@ import {Text, View} from 'react-native';
 import {CityBlock, Header, LangBlock} from '_organisms/index';
 
 //styles
-import {styles} from '_styles/content-container';
+import {contentContainerStyles} from '_styles/content-container';
+import {BG_GRADIENT} from '_styles/global';
 
 export default function SettingsScreen({navigation}) {
     return (
         <View style={{flex: 1}}>
             <Header titleKey={'settings_raffles'} />
 
-            <View style={styles.contentContainer}>
+            <View style={contentContainerStyles.container}>
+                <BG_GRADIENT />
                 <LangBlock />
                 <CityBlock />
             </View>

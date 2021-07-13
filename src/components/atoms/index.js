@@ -6,8 +6,7 @@ import LangBtn from '_atoms/lang-btn';
 import LangMenuItem from '_atoms/lang-menu-item';
 import InputCity from '_atoms/input-city';
 import AuthBtn from '_atoms/auth-btn';
-import TopRaffleItem from '_atoms/top-raffle-item';
-import BottomRaffleItem from '_atoms/bottom-raffle-item';
+import UserAva from '_atoms/user-ava';
 
 export {
     BottomBarItem,
@@ -18,6 +17,5 @@ export {
     LangMenuItem,
     InputCity,
     AuthBtn,
-    TopRaffleItem,
-    BottomRaffleItem,
+    UserAva,
 };

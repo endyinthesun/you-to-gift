@@ -30,20 +30,20 @@ export default function Categories() {
         },
         {
             name: 'inst',
-            icon: <InstIcon />,
-            activeIcon: <InstActiveIcon />,
+            icon: <InstIcon width={33} height={33} />,
+            activeIcon: <InstActiveIcon width={33} height={33} />,
             key: 2,
         },
         {
             name: 'like',
-            icon: <LikeIcon />,
-            activeIcon: <LikeActiveIcon />,
+            icon: <LikeIcon width={34} height={34} />,
+            activeIcon: <LikeActiveIcon width={34} height={34} />,
             key: 3,
         },
         {
             name: 'give',
-            icon: <GiveIcon />,
-            activeIcon: <GiveActiveIcon />,
+            icon: <GiveIcon width={34} height={29} />,
+            activeIcon: <GiveActiveIcon width={34} height={29} />,
             key: 4,
         },
     ];

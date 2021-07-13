@@ -5,10 +5,9 @@ export const styles = EStyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
-        height: 77,
+        height: '$bottomBarHeight',
     },
     nav: {
-        height: 78,
         paddingHorizontal: '$PADDING_HORIZONTAL_TAB_MENU',
         flexDirection: 'row',
         justifyContent: 'space-between',

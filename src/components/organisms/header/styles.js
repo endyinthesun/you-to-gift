@@ -20,6 +20,9 @@ export const styles = EStyleSheet.create({
     headerTitleMedium: {
         fontFamily: '$FONT_ROBOTO_400',
     },
+    headerTitleLight: {
+        fontFamily: '$FONT_ROBOTO_300',
+    },
     headerTitleLink: {
         fontSize: '$FONT_SIZE_16',
         fontFamily: '$FONT_ROBOTO_300',

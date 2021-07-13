@@ -18,12 +18,12 @@ import {styles} from './styles';
 export default function Header({
     titleKey,
     actualRaffles = false,
+    screenRaffle = false,
     iconType,
     onPress,
 }) {
-    const {t} = useTranslation('header');
+    const {t, i18n} = useTranslation('header');
     const withBtn = iconType && onPress;
-
     const translatedText = t(titleKey);
     const translatedTextArr = translatedText.split(' ');
     const titleText = actualRaffles ? (
@@ -32,6 +32,17 @@ export default function Header({
                 {translatedText}
             </Text>
             <Text style={styles.headerTitleLink}>{actualRaffles}</Text>
+        </>
+    ) : screenRaffle ? (
+        <>
+            <Text style={[styles.headerTitle, styles.headerTitleLight]}>
+                {translatedText}
+            </Text>
+            <Text style={[styles.headerTitle, styles.headerTitleBold]}>
+                {i18n.language === 'en'
+                    ? ` #${screenRaffle}`
+                    : ` №${screenRaffle}`}
+            </Text>
         </>
     ) : translatedTextArr.length === 2 ? (
         <>

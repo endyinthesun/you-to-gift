@@ -4,7 +4,8 @@
                 "favorite_raffles": "избранные розыгрыши",
                 "settings_raffles": "настройки розыгрышей",
                 "account_authorization": "авторизация аккаунта",
-                "raffles_filter": "фильтр розыгрышей"
+                "raffles_filter": "фильтр розыгрышей",
+                "raffle": "розыгрыш"
         },
         "modal_filter_screen" : {
                 "category": "категория",
@@ -22,5 +23,8 @@
                 "sign_in_instagram": "войти c instagram",
                 "sign_in_facebook": "войти c facebook",
                 "sign_out": "выйти из аккаунта"
+        },
+        "raffles_screen": {
+                "followers": "подписчиков"
         }
 }

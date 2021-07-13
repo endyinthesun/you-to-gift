@@ -1,6 +1,12 @@
 //modules
 import React, {useRef, useEffect, useState} from 'react';
-import {View, Animated, Easing, useWindowDimensions} from 'react-native';
+import {
+    View,
+    Animated,
+    Easing,
+    useWindowDimensions,
+    StyleSheet,
+} from 'react-native';
 import {observer} from 'mobx-react-lite';
 
 //SVGs
@@ -13,9 +19,9 @@ import {styles} from './styles';
 
 //store
 import {otherStore} from '_store/index';
+import {LinearGradient} from 'expo-linear-gradient';
 
 export default observer(function BottomBar({state, descriptors, navigation}) {
-    const [stateIndex, setStateIndex] = useState(0);
     const windowWidth = useWindowDimensions().width;
     const widthRoute =
         (windowWidth - PADDING_HORIZONTAL_TAB_MENU * 2) / state.routes.length;
@@ -62,7 +68,7 @@ export default observer(function BottomBar({state, descriptors, navigation}) {
         Animated.timing(menuTranslateX, menuTranslateXConf).start();
     }, [otherStore.bottomTabIndex]);
     return (
-        <View style={styles.navContainer}>
+        <View style={[styles.navContainer]}>
             <View style={[styles.nav, {width: windowWidth}]}>
                 <Animated.View
                     style={{
