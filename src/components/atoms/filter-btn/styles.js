@@ -3,11 +3,11 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export const styles = EStyleSheet.create({
     containerBtn: {
         flexDirection: 'row',
-        height: 55,
+        height: '55rem',
         justifyContent: 'center',
         backgroundColor: '$BLUE_TRANSPARENT',
-        marginTop: 35,
-        borderRadius: 10,
+        marginTop: '35rem',
+        borderRadius: '10rem',
     },
     btn: {
         flexDirection: 'row',

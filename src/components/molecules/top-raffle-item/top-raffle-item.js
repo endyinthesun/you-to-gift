@@ -3,6 +3,7 @@ import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import Dash from 'react-native-dash';
 import {useTranslation} from 'react-i18next';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 //SVGs
 import InstIcon from '_icons/categories/inst.svg';
@@ -21,6 +22,8 @@ export default function TopRaffleItem({
     sizeUserAva = 40,
 }) {
     const [t] = useTranslation('raffles_screen');
+
+    //amount subscribers
     const moreThousand = amountSubs >= 1000;
     const modifyAmountSubs = moreThousand
         ? Math.trunc(amountSubs / 1000)
@@ -30,22 +33,26 @@ export default function TopRaffleItem({
         ? `${modifyAmountSubs}K`
         : modifyAmountSubs;
 
+    //icons
+    const sizeIconREM = EStyleSheet.value(`${sizeIcon}rem`);
+    const sizeUserAvaREM = EStyleSheet.value(`${sizeUserAva}rem`);
+
     const isInst = type === 'inst';
     const isLike = type === 'like';
     const isGive = type === 'give';
 
     const icon = isInst ? (
-        <InstIcon width={sizeIcon} height={sizeIcon} />
+        <InstIcon width={sizeIconREM} height={sizeIconREM} />
     ) : isLike ? (
-        <LikeIcon width={sizeIcon} height={sizeIcon} />
+        <LikeIcon width={sizeIconREM} height={sizeIconREM} />
     ) : isGive ? (
-        <GiveIcon width={sizeIcon} height={sizeIcon} />
+        <GiveIcon width={sizeIconREM} height={sizeIconREM} />
     ) : null;
 
     return (
         <View style={styles.container}>
             <View style={styles.left}>
-                <UserAva size={sizeUserAva} />
+                <UserAva size={sizeUserAvaREM} />
                 <View style={styles.userInfo}>
                     <Text style={styles.userName}>{userName}</Text>
                     <Text style={styles.userSubs}>

@@ -16,45 +16,47 @@ import {LangMenuItem} from '_atoms/index';
 
 //styles
 import {styles} from './styles';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default function LangMenu({isOpen}) {
+    const iconSize = EStyleSheet.value('56rem');
     const langData = [
         {
             name: 'ru',
             title: 'Русский',
-            icon: <RussianIcon />,
+            icon: <RussianIcon width={iconSize} height={iconSize} />,
             key: 1,
         },
         {
             name: 'en',
             title: 'English',
-            icon: <EnglishIcon />,
+            icon: <EnglishIcon width={iconSize} height={iconSize} />,
             key: 2,
         },
         {
             name: 'ua',
             title: 'Українська',
-            icon: <UkrainianIcon />,
+            icon: <UkrainianIcon width={iconSize} height={iconSize} />,
             key: 3,
         },
         // {
         //     name: 'pl',
         //     title: 'Polskie',
-        //     icon: <PolandIcon />,
+        //     icon: <PolandIcon width={iconSize} height={iconSize} />,
         //     key: 4,
         //     disabled: true,
         // },
         // {
         //     name: 'fr',
         //     title: 'Français',
-        //     icon: <FranceIcon />,
+        //     icon: <FranceIcon width={iconSize} height={iconSize} />,
         //     key: 5,
         //     disabled: true,
         // },
         // {
         //     name: 'tr',
         //     title: 'Türk',
-        //     icon: <TurkeyIcon />,
+        //     icon: <TurkeyIcon width={iconSize} height={iconSize} />,
         //     key: 6,
         //     disabled: true,
         // },

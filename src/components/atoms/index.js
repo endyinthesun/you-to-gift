@@ -7,6 +7,8 @@ import LangMenuItem from '_atoms/lang-menu-item';
 import InputCity from '_atoms/input-city';
 import AuthBtn from '_atoms/auth-btn';
 import UserAva from '_atoms/user-ava';
+import Budget from '_atoms/budget/budget';
+import AddFavoriteBtn from '_atoms/add-favorite-btn';
 
 export {
     BottomBarItem,
@@ -18,4 +20,6 @@ export {
     InputCity,
     AuthBtn,
     UserAva,
+    Budget,
+    AddFavoriteBtn,
 };

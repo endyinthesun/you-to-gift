@@ -13,7 +13,7 @@ import {AuthBtn} from '_atoms/index';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 
 export default function ProfileScreen({navigation}) {
     return (

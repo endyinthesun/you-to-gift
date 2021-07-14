@@ -3,7 +3,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export const styles = EStyleSheet.create({
     container: {
         // height: 50,
-        paddingVertical: 15,
+        paddingVertical: '15rem',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -15,25 +15,12 @@ export const styles = EStyleSheet.create({
     date: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginLeft: 20,
+        marginLeft: '20rem',
     },
     dateText: {
-        marginLeft: 7,
+        marginLeft: '7rem',
         color: '$DARK_GRAY',
         fontSize: '$FONT_SIZE_15',
         fontFamily: '$FONT_ROBOTO_400',
-    },
-    right: {
-        flexDirection: 'row',
-    },
-    budget: {
-        color: '$RED',
-        fontSize: '$FONT_SIZE_24',
-        fontFamily: '$FONT_ROBOTO_500',
-    },
-    currency: {
-        color: '$BLACK',
-        fontSize: '$FONT_SIZE_24',
-        fontFamily: '$FONT_ROBOTO_100',
     },
 });

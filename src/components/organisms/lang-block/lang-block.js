@@ -11,8 +11,9 @@ import {LangBtn} from '_atoms/index';
 import {LangMenu} from '_molecules/index';
 
 export default function LangBlock() {
-    const [currentLang, setCurrentLang] = useState('ua');
+    // const [currentLang, setCurrentLang] = useState('ua');
     const [isOpen, toggleIsOpen] = useState(false);
+    // const [t, i18n] = useTranslation();
 
     return (
         <View style={styles.container}>

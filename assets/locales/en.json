@@ -26,5 +26,9 @@
         },
         "raffles_screen": {
                 "followers": "followers"
+        },
+        "raffle_screen": {
+                "raffle_valid_until": "the raffle is valid until:"
         }
+
 }

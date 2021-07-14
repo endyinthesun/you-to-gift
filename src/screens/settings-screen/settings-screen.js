@@ -7,7 +7,7 @@ import {CityBlock, Header, LangBlock} from '_organisms/index';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 
 export default function SettingsScreen({navigation}) {
     return (

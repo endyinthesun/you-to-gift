@@ -1,6 +1,7 @@
 //modules
 import React, {useState} from 'react';
 import {Pressable, Text, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 //SVGs
 import StarIcon from '_icons/bottom-bar/star.svg';
@@ -9,7 +10,7 @@ import ClockIcon from '_icons/clock.svg';
 
 //styles
 import {styles} from './styles';
-import {RAFFLE_ITEM_GRADIENT} from '_styles/global';
+import {Budget} from '_atoms/index';
 
 export default function BottomRaffleItem({date, budget}) {
     const [isFavorites, setIsFavorites] = useState(false);
@@ -18,9 +19,15 @@ export default function BottomRaffleItem({date, budget}) {
             <View style={styles.left}>
                 <Pressable onPress={() => setIsFavorites(!isFavorites)}>
                     {isFavorites ? (
-                        <StarIcon />
+                        <StarIcon
+                            width={EStyleSheet.value('26rem')}
+                            height={EStyleSheet.value('24rem')}
+                        />
                     ) : (
-                        <StarIconActive width={26} height={24} />
+                        <StarIconActive
+                            width={EStyleSheet.value('26rem')}
+                            height={EStyleSheet.value('24rem')}
+                        />
                     )}
                 </Pressable>
                 <View style={styles.date}>
@@ -28,10 +35,7 @@ export default function BottomRaffleItem({date, budget}) {
                     <Text style={styles.dateText}>{date}</Text>
                 </View>
             </View>
-            <View style={styles.right}>
-                <Text style={styles.budget}>{budget}</Text>
-                <Text style={styles.currency}> ₽</Text>
-            </View>
+            <Budget number={budget} currency={'₽'} fontSize={24} />
         </View>
     );
 }

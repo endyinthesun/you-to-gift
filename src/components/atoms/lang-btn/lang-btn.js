@@ -2,6 +2,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import {Pressable, Text, View, Animated, Easing} from 'react-native';
 import {observer} from 'mobx-react-lite';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //SVGs
 import RussianIcon from '_icons/flags/russia.svg';
@@ -14,10 +15,10 @@ import TurkeyIcon from '_icons/flags/turkey.svg';
 import ArrowsIcon from '_icons/relevance/arrows.svg';
 
 //styles
-import {generateStyles} from './styles';
+import {styles} from './styles';
 
 //store
-import {otherStore} from '_store/index';
+import otherStore from '_store/other-store';
 
 export default observer(function LangBtn({toggleIsOpen, isOpen}) {
     let arrowsRotate = useRef(new Animated.Value(0)).current;
@@ -28,7 +29,6 @@ export default observer(function LangBtn({toggleIsOpen, isOpen}) {
         useNativeDriver: true,
     };
 
-    const styles = generateStyles(isOpen);
     const parseBtn = lang => {
         let icon = null;
         let title = '';
@@ -68,9 +68,6 @@ export default observer(function LangBtn({toggleIsOpen, isOpen}) {
             </>
         );
     };
-    // useEffect(() => {
-    //
-    // }, [otherStore.lang]);
 
     useEffect(() => {
         Animated.timing(arrowsRotate, arrowsRotateConf).start();

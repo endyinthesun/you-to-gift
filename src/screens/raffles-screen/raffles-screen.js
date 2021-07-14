@@ -1,6 +1,7 @@
 //modules
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 //components
 import {Header} from '_organisms/index';
@@ -8,10 +9,10 @@ import {RaffleItem} from '_organisms/index';
 
 //styles
 import {styles} from './styles';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 
 //store
-import {otherStore} from '_store/index';
+import bottomTab from '_store/bottom-tab';
 
 export default function RafflesScreen({route, navigation}) {
     const data = [
@@ -88,7 +89,7 @@ export default function RafflesScreen({route, navigation}) {
                 iconType={'settings'}
                 onPress={() => {
                     navigation.navigate('Settings');
-                    otherStore.setBottomTabIndex(2);
+                    bottomTab.setBottomTabIndex(2);
                 }}
             />
             <View style={{flex: 1}}>

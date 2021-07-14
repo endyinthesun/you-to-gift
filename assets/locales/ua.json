@@ -26,5 +26,8 @@
         },
         "raffles_screen": {
                 "followers": "підписників"
+        },
+        "raffle_screen": {
+                "raffle_valid_until": "розіграш актуальний до:"
         }
 }

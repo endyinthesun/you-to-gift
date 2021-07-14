@@ -1,6 +1,7 @@
 //modules
 import React, {useRef, useEffect} from 'react';
 import {Easing, Animated, Pressable} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 //styles
 import {generateStyles} from '_atoms/bottom-bar-item/styles';
@@ -13,7 +14,7 @@ export default function BottomBarItem({
     const menuItemTranslateY = useRef(new Animated.Value(0)).current;
     const menuItemTranslateYConf = {
         duration: 150,
-        toValue: isFocused ? -35 : 0,
+        toValue: isFocused ? EStyleSheet.value('-35rem') : 0,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true,
     };

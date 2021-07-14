@@ -1,14 +1,14 @@
 //modules
 import React, {useEffect} from 'react';
 import {Pressable, Text, View} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {observer} from 'mobx-react-lite';
+import {useTranslation} from 'react-i18next';
 
 //styles
 import {styles} from './styles';
 
 //store
-import {otherStore} from '_store/index';
+import otherStore from '_store/other-store';
 
 export default observer(function LangMenuItem({
     name,
@@ -16,23 +16,13 @@ export default observer(function LangMenuItem({
     icon,
     disabled = false,
 }) {
-    const setLang = async value => {
-        try {
-            await AsyncStorage.setItem('@lang', value);
-        } catch (e) {
-            // save error
-        }
-        // console.log('Done.');
-    };
+    const [t, i18n] = useTranslation();
 
-    useEffect(() => {
-        setLang(otherStore.lang);
-    }, [otherStore.lang]);
     return (
         <Pressable
             onPress={() => {
                 otherStore.changeLang(name);
-                // console.log('name-- ', name);
+                i18n.changeLanguage(name);
             }}
             style={styles.btn}
             disabled={disabled}>

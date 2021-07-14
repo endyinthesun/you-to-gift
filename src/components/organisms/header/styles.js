@@ -1,11 +1,11 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 export const styles = EStyleSheet.create({
     headerContainer: {
-        height: 64,
+        height: '64rem',
         backgroundColor: 'white',
         flexDirection: 'row',
-        paddingHorizontal: 22,
-        paddingVertical: 15,
+        paddingHorizontal: '22rem',
+        paddingVertical: '15rem',
         alignItems: 'center',
     },
     headerTitle: {
@@ -31,6 +31,6 @@ export const styles = EStyleSheet.create({
     },
 
     btn: {
-        padding: 5,
+        padding: '5rem',
     },
 });

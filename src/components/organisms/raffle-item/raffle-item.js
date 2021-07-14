@@ -13,7 +13,7 @@ import {TopRaffleItem, BottomRaffleItem} from '_molecules/index';
 
 //styles
 import {styles} from './styles';
-import {RAFFLE_ITEM_GRADIENT} from '_styles/global';
+import {RAFFLE_ITEM_GRADIENT} from '_styles/gradients';
 
 export default function RaffleItem({
     userName,
@@ -34,11 +34,8 @@ export default function RaffleItem({
     ) : isGive ? (
         <GiveIconBg />
     ) : null;
-    // let formatter = new Intl.NumberFormat('ru', {
-    //     maximumSignificantDigits: 3,
-    // });
-    // const budgetSpace = formatter.format(+budget);
-    const budgetSpace = budget.toLocaleString('ru');
+
+    const formatBudget = budget.toLocaleString('ru');
 
     return (
         <Pressable
@@ -50,7 +47,7 @@ export default function RaffleItem({
                     amountSubs,
                     type,
                     date,
-                    budgetSpace,
+                    formatBudget,
                 })
             }>
             <TopRaffleItem
@@ -66,7 +63,7 @@ export default function RaffleItem({
                 dashThickness={1}
                 dashGap={4}
             />
-            <BottomRaffleItem date={date} budget={budgetSpace} />
+            <BottomRaffleItem date={date} budget={formatBudget} />
             <View style={{position: 'absolute', right: 0, bottom: 0}}>
                 {icon}
             </View>

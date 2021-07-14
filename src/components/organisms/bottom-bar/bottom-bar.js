@@ -1,27 +1,24 @@
 //modules
 import React, {useRef, useEffect, useState} from 'react';
-import {
-    View,
-    Animated,
-    Easing,
-    useWindowDimensions,
-    StyleSheet,
-} from 'react-native';
+import {View, Animated, Easing, useWindowDimensions} from 'react-native';
 import {observer} from 'mobx-react-lite';
+// import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
+
+//components
 import BottomBarItem from '_atoms/bottom-bar-item';
 
 //style
 import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/global';
+import {BOTTOM_BAR_GRADIENT} from '_styles/gradients';
 import {styles} from './styles';
 
 //store
-import {otherStore} from '_store/index';
-import {LinearGradient} from 'expo-linear-gradient';
+import bottomTab from '_store/bottom-tab';
 
-export default observer(function BottomBar({state, descriptors, navigation}) {
+export default function BottomBar({state, descriptors, navigation}) {
     const windowWidth = useWindowDimensions().width;
     const widthRoute =
         (windowWidth - PADDING_HORIZONTAL_TAB_MENU * 2) / state.routes.length;
@@ -38,7 +35,7 @@ export default observer(function BottomBar({state, descriptors, navigation}) {
                 target: route.key,
                 canPreventDefault: true,
             });
-            otherStore.setBottomTabIndex(index);
+            bottomTab.setBottomTabIndex(index);
             if (!isFocused && !event.defaultPrevented) {
                 navigation.navigate(route.name);
             }
@@ -55,7 +52,7 @@ export default observer(function BottomBar({state, descriptors, navigation}) {
     });
     useEffect(() => {
         const position =
-            widthRoute * otherStore.bottomTabIndex +
+            widthRoute * bottomTab.bottomTabIndex +
             widthRoute / 2 +
             PADDING_HORIZONTAL_TAB_MENU -
             433;
@@ -66,13 +63,21 @@ export default observer(function BottomBar({state, descriptors, navigation}) {
             useNativeDriver: true,
         };
         Animated.timing(menuTranslateX, menuTranslateXConf).start();
-    }, [otherStore.bottomTabIndex]);
+    }, [bottomTab.bottomTabIndex]);
     return (
         <View style={[styles.navContainer]}>
-            <View style={[styles.nav, {width: windowWidth}]}>
+            <BOTTOM_BAR_GRADIENT />
+            <View
+                style={[
+                    styles.nav,
+                    {
+                        width: windowWidth,
+                    },
+                ]}>
                 <Animated.View
                     style={{
                         position: 'absolute',
+                        bottom: 0,
                         transform: [
                             {
                                 translateX: menuTranslateX,
@@ -85,4 +90,4 @@ export default observer(function BottomBar({state, descriptors, navigation}) {
             </View>
         </View>
     );
-});
+}

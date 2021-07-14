@@ -5,17 +5,17 @@ export const generateStyles = size =>
         userAvaContainer: {
             height: size,
             width: size,
-            borderRadius: 46,
+            borderRadius: size,
             overflow: 'hidden',
-            padding: 3,
-            marginRight: 11,
+            padding: '3rem',
+            marginRight: '11rem',
         },
         userAva: {
             backgroundColor: 'green',
             flex: 1,
             borderRadius: size,
             borderColor: 'white',
-            borderWidth: 2,
+            borderWidth: '2rem',
             overflow: 'hidden',
         },
     });

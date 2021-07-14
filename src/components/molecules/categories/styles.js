@@ -8,14 +8,14 @@ export const styles = EStyleSheet.create({
         fontFamily: '$FONT_ROBOTO_700',
     },
     itemsContainer: {
-        marginTop: 10,
+        marginTop: '10rem',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
     },
     divider: {
-        marginTop: 34,
-        height: 1,
+        marginTop: '34rem',
+        height: '1rem',
         width: '100%',
         backgroundColor: '$GRAY',
     },

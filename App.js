@@ -17,9 +17,9 @@ import RootRouter from '_routes/app-router';
 import {initGlobalVar} from '_styles/global';
 
 //store
-import {otherStore} from '_store/index';
+import otherStore from '_store/other-store';
 
-export default observer(function App() {
+export default function App() {
     const [t, i18n] = useTranslation();
 
     useEffect(() => {
@@ -30,18 +30,14 @@ export default observer(function App() {
         const checkAsync = async () => {
             const value = await AsyncStorage.getItem('@lang');
             if (value !== undefined && value !== null) {
-                otherStore.changeLang(value);
+                otherStore.changeLang(value, true);
+                i18n.changeLanguage(value);
             } else {
                 otherStore.changeLang('ru');
             }
         };
         checkAsync();
     }, []);
-
-    useEffect(() => {
-        i18n.changeLanguage(otherStore.lang);
-        // console.log('otherStore.lang app --- ', otherStore.lang);
-    }, [otherStore.lang]);
 
     let [fontsLoaded] = useFonts({
         RobotoThin: require('_assets/fonts/Roboto-Thin.ttf'),
@@ -56,4 +52,4 @@ export default observer(function App() {
             <RootRouter />
         </SafeAreaProvider>
     );
-});
+}

@@ -2,16 +2,16 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 export const styles = EStyleSheet.create({
     container: {
-        borderRadius: 14,
+        borderRadius: '14rem',
         overflow: 'hidden',
         backgroundColor: '$WHITE',
-        paddingLeft: 13,
-        paddingTop: 9,
-        paddingRight: 20,
-        // paddingBottom: 17,
-        marginBottom: 20,
+        paddingLeft: '13rem',
+        paddingTop: '9rem',
+        paddingRight: '20rem',
+        // paddingBottom: '17rem',
+        marginBottom: '20rem',
     },
     dash: {
-        height: 1,
+        height: '1rem',
     },
 });

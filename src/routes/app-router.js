@@ -3,7 +3,10 @@ import React, {useEffect} from 'react';
 import {View} from 'react-native';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+    createBottomTabNavigator,
+    useBottomTabBarHeight,
+} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -28,7 +31,7 @@ import {
 
 //components
 import {BottomBar} from '_organisms/index';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 
 export default function RootRouter() {
     const TabNav = createBottomTabNavigator();
@@ -54,7 +57,7 @@ export default function RootRouter() {
                 name="Favorites"
                 component={FavoritesScreen}
                 options={{
-                    icon: <StarIcon />,
+                    icon: <StarIcon width={30} height={28} />,
                     iconActive: <StarActiveIcon width={30} height={28} />,
                 }}
             />
@@ -80,7 +83,6 @@ export default function RootRouter() {
     return (
         <SafeAreaView style={{flex: 1}}>
             <View style={{flex: 1}}>
-                {/*<BG_GRADIENT />*/}
                 <NavigationContainer>
                     <MainStack.Navigator
                         screenOptions={{

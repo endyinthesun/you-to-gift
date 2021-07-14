@@ -8,7 +8,7 @@ import ModalFilterScreen from '_screens/modal-filter-screen';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 
 export default function FavoritesScreen({navigation}) {
     const [modalVisible, setModalVisible] = useState(false);

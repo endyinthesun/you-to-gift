@@ -5,13 +5,12 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 //components
 import {Header} from '_organisms/index';
-import {BG_GRADIENT} from '_styles/global';
+import {BG_GRADIENT} from '_styles/gradients';
 import {Categories, Relevance} from '_molecules/index';
+import FilterBtn from '_atoms/filter-btn';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';
-import FilterBtn from '_atoms/filter-btn';
-// import Relevance from "_molecules/relevance";
 
 export default function ModalFilterScreen({onPress}) {
     return (

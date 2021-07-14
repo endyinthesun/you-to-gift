@@ -18,10 +18,13 @@ import {CategoryItem} from '_atoms/index';
 //styles
 import {styles} from './styles';
 import {useTranslation} from 'react-i18next';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default function Categories() {
     const [t] = useTranslation('modal_filter_screen');
     const [category, setCategory] = useState('');
+
+    const iconSize = EStyleSheet.value('33rem');
     const categoriesData = [
         {
             name: 'all',
@@ -30,20 +33,30 @@ export default function Categories() {
         },
         {
             name: 'inst',
-            icon: <InstIcon width={33} height={33} />,
-            activeIcon: <InstActiveIcon width={33} height={33} />,
+            icon: <InstIcon width={iconSize} height={iconSize} />,
+            activeIcon: <InstActiveIcon width={iconSize} height={iconSize} />,
             key: 2,
         },
         {
             name: 'like',
-            icon: <LikeIcon width={34} height={34} />,
-            activeIcon: <LikeActiveIcon width={34} height={34} />,
+            icon: <LikeIcon width={iconSize} height={iconSize} />,
+            activeIcon: <LikeActiveIcon width={iconSize} height={iconSize} />,
             key: 3,
         },
         {
             name: 'give',
-            icon: <GiveIcon width={34} height={29} />,
-            activeIcon: <GiveActiveIcon width={34} height={29} />,
+            icon: (
+                <GiveIcon
+                    width={iconSize}
+                    height={EStyleSheet.value('29rem')}
+                />
+            ),
+            activeIcon: (
+                <GiveActiveIcon
+                    width={iconSize}
+                    height={EStyleSheet.value('29rem')}
+                />
+            ),
             key: 4,
         },
     ];
