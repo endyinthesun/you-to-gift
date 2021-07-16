@@ -4,7 +4,6 @@ export const styles = EStyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        // flexWrap: 'wrap',
         position: 'absolute',
         bottom: 0,
         left: 0,

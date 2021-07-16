@@ -12,7 +12,7 @@ import ClockIcon from '_icons/clock.svg';
 import {styles} from './styles';
 import {Budget} from '_atoms/index';
 
-export default function BottomRaffleItem({date, budget}) {
+export default function BottomDrawItem({date, budget, currency}) {
     const [isFavorites, setIsFavorites] = useState(false);
     return (
         <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function BottomRaffleItem({date, budget}) {
                     <Text style={styles.dateText}>{date}</Text>
                 </View>
             </View>
-            <Budget number={budget} currency={'₽'} fontSize={24} />
+            <Budget number={budget} currency={currency} fontSize={24} />
         </View>
     );
 }

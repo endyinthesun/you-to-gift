@@ -1,11 +1,11 @@
 {
         "header": {
-                "actual_raffles": "актуальні розіграші",
-                "favorite_raffles": "обрані розіграші",
-                "settings_raffles": "налаштування розіграшів",
+                "actual_draws": "актуальні розіграші",
+                "favorite_draws": "обрані розіграші",
+                "settings_draws": "налаштування розіграшів",
                 "account_authorization": "авторизація акаунта",
-                "raffles_filter": "фільтр розіграшів",
-                "raffle": "розіграш"
+                "draws_filter": "фільтр розіграшів",
+                "draw": "розіграш"
         },
         "modal_filter_screen" : {
                 "category": "категорія",
@@ -24,10 +24,24 @@
                 "sign_in_facebook": "увійти з facebook",
                 "sign_out": "вийти з акаунта"
         },
-        "raffles_screen": {
+        "draws_screen": {
                 "followers": "підписників"
         },
-        "raffle_screen": {
-                "raffle_valid_until": "розіграш актуальний до:"
+        "draw_screen": {
+                "draw_valid_until": "розіграш актуальний до:",
+                "add_to_favourites": "додати в обрані",
+                "competition_in_favorites": "конкурс в обраному",
+                "show_rewards_competition": "показати призи конкурсу",
+                "place":"місце",
+                "physical_competition": "Фізичний приз",
+                "financial competition": "Фінансовий приз",
+                "show_conditions": "дивитися умови",
+                "attention": "увага!",
+                "competition_created_for_specific_region:": "Конкурс створено для конкретного регіону:",
+                "to_participate_you_must": "Для участі необхідно мати відкритий аккаунт на час проведення розіграшу. Виконавши всі умови даного конкурсу, Ви автоматично стаєте його учасником!",
+                "information_about_competition": "інформація про проведення",
+                "number_of_participants": "Кількість учасників':",
+                "find_out_your_number": "Дізнатися свій номер",
+                "download_excel_file": "Завантажити Excel файл"
         }
 }

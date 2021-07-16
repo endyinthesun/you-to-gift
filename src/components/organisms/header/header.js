@@ -5,20 +5,19 @@ import {useTranslation} from 'react-i18next';
 
 //SVGs
 import FilterIcon from '_icons/filter.svg';
-import SettingsIcon from '_icons/settings.svg';
 import BackIcon from '_icons/back.svg';
 
 //styles
 import {styles} from './styles';
 
-// actualRaffles - two text block in column, one of them - link (true, false)
-// screenRaffle - two text block in row, second block with bold font style
-// iconType = 'back', 'filter', 'settings'
+// actualDraws - two text block in column, one of them - link (true, false)
+// screenDraw - two text block in row, second block with bold font style
+// iconType = 'back', 'filter'
 
 export default function Header({
     titleKey,
-    actualRaffles = false,
-    screenRaffle = false,
+    actualDraws = false,
+    screenDraw = false,
     iconType,
     onPress,
 }) {
@@ -26,22 +25,20 @@ export default function Header({
     const withBtn = iconType && onPress;
     const translatedText = t(titleKey);
     const translatedTextArr = translatedText.split(' ');
-    const titleText = actualRaffles ? (
+    const titleText = actualDraws ? (
         <>
             <Text style={[styles.headerTitle, styles.headerTitleBold]}>
                 {translatedText}
             </Text>
-            <Text style={styles.headerTitleLink}>{actualRaffles}</Text>
+            <Text style={styles.headerTitleLink}>{actualDraws}</Text>
         </>
-    ) : screenRaffle ? (
+    ) : screenDraw ? (
         <>
             <Text style={[styles.headerTitle, styles.headerTitleLight]}>
                 {translatedText}
             </Text>
             <Text style={[styles.headerTitle, styles.headerTitleBold]}>
-                {i18n.language === 'en'
-                    ? ` #${screenRaffle}`
-                    : ` №${screenRaffle}`}
+                {i18n.language === 'en' ? ` #${screenDraw}` : ` №${screenDraw}`}
             </Text>
         </>
     ) : translatedTextArr.length === 2 ? (
@@ -59,12 +56,10 @@ export default function Header({
         </Text>
     ) : null;
     const icon =
-        iconType === 'filter' ? (
-            <FilterIcon />
-        ) : iconType === 'back' ? (
+        iconType === 'back' ? (
             <BackIcon />
-        ) : iconType === 'settings' ? (
-            <SettingsIcon />
+        ) : iconType === 'filter' ? (
+            <FilterIcon />
         ) : null;
     return (
         <View
@@ -72,7 +67,7 @@ export default function Header({
                 styles.headerContainer,
                 {justifyContent: withBtn ? 'space-between' : 'center'},
             ]}>
-            <View style={{flexDirection: actualRaffles ? 'column' : 'row'}}>
+            <View style={{flexDirection: actualDraws ? 'column' : 'row'}}>
                 {titleText}
             </View>
             {withBtn ? (

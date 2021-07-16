@@ -20,53 +20,19 @@ import {styles} from './styles';
 //store
 import otherStore from '_store/other-store';
 
-export default observer(function LangBtn({toggleIsOpen, isOpen}) {
-    let arrowsRotate = useRef(new Animated.Value(0)).current;
+export default function SpoilerBtn({
+    toggleIsOpen,
+    isOpen,
+    icon,
+    title,
+    stylesBtn,
+}) {
+    let arrowsRotate = useRef(new Animated.Value(1)).current;
     const arrowsRotateConf = {
         duration: 150,
-        toValue: isOpen ? 0 : 1,
+        toValue: isOpen ? 1 : 0,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true,
-    };
-
-    const parseBtn = lang => {
-        let icon = null;
-        let title = '';
-        switch (lang) {
-            case 'ru':
-                icon = <RussianIcon />;
-                title = 'Русский язык';
-                break;
-            case 'en':
-                icon = <EnglishIcon />;
-                title = 'English language';
-                break;
-            case 'ua':
-                icon = <UkrainianIcon />;
-                title = 'Українська мова';
-                break;
-            case 'pl':
-                icon = <PolandIcon />;
-                title = 'Język polski';
-                break;
-            case 'fr':
-                icon = <FranceIcon />;
-                title = 'Français';
-                break;
-            case 'tr':
-                icon = <TurkeyIcon />;
-                title = 'Türk dili';
-                break;
-
-            default:
-                console.log('error');
-        }
-        return (
-            <>
-                <View style={styles.icon}>{icon}</View>
-                <Text style={styles.title}>{title}</Text>
-            </>
-        );
     };
 
     useEffect(() => {
@@ -76,12 +42,14 @@ export default observer(function LangBtn({toggleIsOpen, isOpen}) {
         inputRange: [0, 1],
         outputRange: ['0deg', '90deg'],
     });
-    const content = parseBtn(otherStore.lang);
     return (
         <Pressable
             onPress={() => toggleIsOpen(!isOpen)}
             style={styles.container}>
-            <View style={styles.wrapper}>{content}</View>
+            <View style={styles.wrapper}>
+                {icon ? <View style={styles.icon}>{icon}</View> : null}
+                <Text style={[styles.title, stylesBtn]}>{title}</Text>
+            </View>
             <Animated.View
                 style={{
                     transform: [
@@ -94,4 +62,4 @@ export default observer(function LangBtn({toggleIsOpen, isOpen}) {
             </Animated.View>
         </Pressable>
     );
-});
+}

@@ -15,7 +15,7 @@ export default function FavoritesScreen({navigation}) {
     return (
         <View style={{flex: 1}}>
             <Header
-                titleKey={'favorite_raffles'}
+                titleKey={'favorite_draws'}
                 iconType={'filter'}
                 onPress={() => setModalVisible(true)}
             />

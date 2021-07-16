@@ -1,7 +1,12 @@
 //modules
-import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import Collapsible from 'react-native-collapsible';
+import React, {useEffect} from 'react';
+import {Pressable, Text, View} from 'react-native';
+import {observer} from 'mobx-react-lite';
+import {useTranslation} from 'react-i18next';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+//styles
+import {styles} from './styles';
 
 //SVGs
 import RussianIcon from '_icons/flags/russia.svg';
@@ -11,63 +16,68 @@ import PolandIcon from '_icons/flags/poland.svg';
 import FranceIcon from '_icons/flags/france.svg';
 import TurkeyIcon from '_icons/flags/turkey.svg';
 
-//components
-import {LangMenuItem} from '_atoms/index';
+//store
+import otherStore from '_store/other-store';
 
-//styles
-import {styles} from './styles';
-import EStyleSheet from 'react-native-extended-stylesheet';
-
-export default function LangMenu({isOpen}) {
+export default observer(function LangContent({disabled = false}) {
+    const [t, i18n] = useTranslation();
     const iconSize = EStyleSheet.value('56rem');
     const langData = [
         {
             name: 'ru',
             title: 'Русский',
             icon: <RussianIcon width={iconSize} height={iconSize} />,
-            key: 1,
+            id: 1,
         },
         {
             name: 'en',
             title: 'English',
             icon: <EnglishIcon width={iconSize} height={iconSize} />,
-            key: 2,
+            id: 2,
         },
         {
             name: 'ua',
             title: 'Українська',
             icon: <UkrainianIcon width={iconSize} height={iconSize} />,
-            key: 3,
+            id: 3,
         },
         // {
         //     name: 'pl',
         //     title: 'Polskie',
         //     icon: <PolandIcon width={iconSize} height={iconSize} />,
-        //     key: 4,
+        //     id: 4,
         //     disabled: true,
         // },
         // {
         //     name: 'fr',
         //     title: 'Français',
         //     icon: <FranceIcon width={iconSize} height={iconSize} />,
-        //     key: 5,
+        //     id: 5,
         //     disabled: true,
         // },
         // {
         //     name: 'tr',
         //     title: 'Türk',
         //     icon: <TurkeyIcon width={iconSize} height={iconSize} />,
-        //     key: 6,
+        //     id: 6,
         //     disabled: true,
         // },
     ];
     return (
-        <Collapsible collapsed={isOpen}>
-            <View style={styles.container}>
-                {langData.map(props => {
-                    return <LangMenuItem {...props} />;
-                })}
-            </View>
-        </Collapsible>
+        <>
+            {langData.map(({name, title, icon, id}) => (
+                <Pressable
+                    key={id}
+                    onPress={() => {
+                        otherStore.changeLang(name);
+                        i18n.changeLanguage(name);
+                    }}
+                    style={styles.btn}
+                    disabled={disabled}>
+                    <View style={styles.btnIcon}>{icon}</View>
+                    <Text style={styles.btnTitle}>{title}</Text>
+                </Pressable>
+            ))}
+        </>
     );
-}
+});

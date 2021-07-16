@@ -8,7 +8,6 @@ import {
 } from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {observer} from 'mobx-react-lite';
 
 //routes
 import RootRouter from '_routes/app-router';

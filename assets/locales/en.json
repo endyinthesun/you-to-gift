@@ -1,11 +1,11 @@
 {
         "header": {
-                "actual_raffles": "actual raffles",
-                "favorite_raffles": "favorite raffles",
-                "settings_raffles": "settings raffles",
+                "actual_draws": "actual draws",
+                "favorite_draws": "favorite draws",
+                "settings_draws": "settings draws",
                 "account_authorization": "account authorization",
-                "raffles_filter": "raffles filter",
-                "raffle": "raffle"
+                "draws_filter": "draws filter",
+                "draw": "draw"
         },
         "modal_filter_screen" : {
                 "category": "category",
@@ -24,11 +24,25 @@
                 "sign_in_facebook": "sign in to facebook",
                 "sign_out": "sign out"
         },
-        "raffles_screen": {
+        "draws_screen": {
                 "followers": "followers"
         },
-        "raffle_screen": {
-                "raffle_valid_until": "the raffle is valid until:"
+        "draw_screen": {
+                "draw_valid_until": "the draw is valid until:",
+                "add_to_favourites": "add to favourites",
+                "competition_in_favorites": "competition in favorites",
+                "show_rewards_competition": "show rewards of the competition",
+                "place":"place",
+                "physical_competition": "Physical competition",
+                "financial competition": "Financial competition",
+                "show_conditions": "show conditions",
+                "attention": "attention!",
+                "competition_created_for_specific_region:": "The competition was created for a specific region:",
+                "to_participate_you_must": "To participate, you must have an open account at the time of the drawing. Having fulfilled all the conditions of this competition, you automatically become a participant!",
+                "information_about_competition": "information about the competition",
+                "number_of_participants": "Number of participants:",
+                "find_out_your_number": "Find out your number",
+                "download_excel_file": "Download Excel file"
         }
 
 }

@@ -9,22 +9,24 @@ import LikeIconBg from '_icons/like-bg.svg';
 import GiveIconBg from '_icons/give-bg.svg';
 
 //components
-import {TopRaffleItem, BottomRaffleItem} from '_molecules/index';
+import {TopDrawItem, BottomDrawItem} from '_molecules/index';
 
 //styles
 import {styles} from './styles';
-import {RAFFLE_ITEM_GRADIENT} from '_styles/gradients';
+import {DRAW_ITEM_GRADIENT} from '_styles/gradients';
 
-export default function RaffleItem({
+export default function DrawItem({
+    imageUrl,
     userName,
     amountSubs,
     type,
     date,
     budget,
+    currency,
     id,
     navigation,
 }) {
-    const isInst = type === 'inst';
+    const isInst = type === 'instagram';
     const isLike = type === 'like';
     const isGive = type === 'give';
     const icon = isInst ? (
@@ -34,23 +36,25 @@ export default function RaffleItem({
     ) : isGive ? (
         <GiveIconBg />
     ) : null;
-
-    const formatBudget = budget.toLocaleString('ru');
+    const formatBudget = parseInt(budget).toLocaleString('ru');
 
     return (
         <Pressable
             style={styles.container}
             onPress={() =>
-                navigation.navigate('Raffle', {
+                navigation.navigate('Draw', {
                     id,
+                    imageUrl,
                     userName,
                     amountSubs,
                     type,
                     date,
                     formatBudget,
+                    currency,
                 })
             }>
-            <TopRaffleItem
+            <TopDrawItem
+                imageUrl={imageUrl}
                 userName={userName}
                 amountSubs={amountSubs}
                 type={type}
@@ -63,11 +67,15 @@ export default function RaffleItem({
                 dashThickness={1}
                 dashGap={4}
             />
-            <BottomRaffleItem date={date} budget={formatBudget} />
+            <BottomDrawItem
+                date={date}
+                budget={formatBudget}
+                currency={currency}
+            />
             <View style={{position: 'absolute', right: 0, bottom: 0}}>
                 {icon}
             </View>
-            <RAFFLE_ITEM_GRADIENT fillBottom height={4} />
+            <DRAW_ITEM_GRADIENT fillBottom height={4} />
         </Pressable>
     );
 }

@@ -14,14 +14,15 @@ import GiveIcon from '_icons/categories/give.svg';
 import {styles} from './styles';
 import {UserAva} from '_atoms/index';
 
-export default function TopRaffleItem({
+export default function TopDrawItem({
+    imageUrl,
     userName,
     amountSubs,
     type,
     sizeIcon = 25,
     sizeUserAva = 40,
 }) {
-    const [t] = useTranslation('raffles_screen');
+    const [t] = useTranslation('draws_screen');
 
     //amount subscribers
     const moreThousand = amountSubs >= 1000;
@@ -37,7 +38,7 @@ export default function TopRaffleItem({
     const sizeIconREM = EStyleSheet.value(`${sizeIcon}rem`);
     const sizeUserAvaREM = EStyleSheet.value(`${sizeUserAva}rem`);
 
-    const isInst = type === 'inst';
+    const isInst = type === 'instagram';
     const isLike = type === 'like';
     const isGive = type === 'give';
 
@@ -52,7 +53,7 @@ export default function TopRaffleItem({
     return (
         <View style={styles.container}>
             <View style={styles.left}>
-                <UserAva size={sizeUserAvaREM} />
+                <UserAva size={sizeUserAvaREM} imageUrl={imageUrl} />
                 <View style={styles.userInfo}>
                     <Text style={styles.userName}>{userName}</Text>
                     <Text style={styles.userSubs}>

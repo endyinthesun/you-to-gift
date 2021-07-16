@@ -43,7 +43,7 @@ export const BOTTOM_BAR_GRADIENT = () => (
     />
 );
 
-export const RAFFLE_ITEM_GRADIENT = ({absoluteFill, fillBottom, height}) => {
+export const DRAW_ITEM_GRADIENT = ({absoluteFill, fillBottom, height}) => {
     const absoluteFillStyles = {
         bottom: 0,
         left: 0,

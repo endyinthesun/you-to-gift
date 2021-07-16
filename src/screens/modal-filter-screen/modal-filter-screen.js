@@ -1,7 +1,7 @@
 //modules
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import SafeAreaView from 'react-native-safe-area-view';
 
 //components
 import {Header} from '_organisms/index';
@@ -18,7 +18,7 @@ export default function ModalFilterScreen({onPress}) {
             <SafeAreaView style={{flex: 0}} />
             <View style={{flex: 1}}>
                 <Header
-                    titleKey={'raffles_filter'}
+                    titleKey={'draws_filter'}
                     iconType={'back'}
                     onPress={onPress}
                 />

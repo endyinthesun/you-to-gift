@@ -1,13 +1,13 @@
-import RafflesScreen from '_screens/raffles-screen';
+import DrawsScreen from '_screens/draws-screen';
 import FavoritesScreen from '_screens/favorites-screen';
 import SettingsScreen from '_screens/settings-screen';
 import ProfileScreen from '_screens/profile-screen';
-import RaffleScreen from '_screens/raffle-screen';
+import DrawScreen from '_screens/draw-screen';
 
 export {
-    RafflesScreen,
+    DrawsScreen,
     FavoritesScreen,
     SettingsScreen,
     ProfileScreen,
-    RaffleScreen,
+    DrawScreen,
 };

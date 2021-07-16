@@ -66,4 +66,12 @@ export const styles = EStyleSheet.create({
     addFavoriteBtn: {
         marginTop: '23rem',
     },
+    rewards: {
+        marginTop: '15rem',
+    },
+    spoilerBtn: {
+        textTransform: 'uppercase',
+        fontSize: '14rem',
+        fontFamily: '$FONT_ROBOTO_400',
+    },
 });

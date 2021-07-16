@@ -5,6 +5,9 @@
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/images/expo/icon.png",
+        "facebookAppId": "198920772173332",
+        "facebookScheme": "fb198920772173332",
+        "facebookDisplayName": "You To Gift",
         "splash": {
             "image": "./assets/images/expo/splash.png",
             "resizeMode": "cover",
@@ -16,7 +19,10 @@
         "assetBundlePatterns": ["**/*"],
         "ios": {
             "supportsTablet": true,
-            "bundleIdentifier": "com.devseonet.youtogift"
+            "bundleIdentifier": "com.devseonet.youtogift",
+            "infoPlist": {
+
+            }
         },
         "android": {
             "adaptiveIcon": {

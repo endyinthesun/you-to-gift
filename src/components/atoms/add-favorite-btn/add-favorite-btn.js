@@ -1,6 +1,6 @@
 //modules
-import React from 'react';
-import {Pressable, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -15,19 +15,27 @@ import {
     BTN_FAVORITE_GRADIENT,
 } from '_styles/gradients';
 
-export default function AddFavoriteBtn({titleKey}) {
-    const [t, r18n] = useTranslation('raffle_screen');
-    const icon = (
-        <StarIcon
-            width={EStyleSheet.value('22rem')}
-            height={EStyleSheet.value('21rem')}
-        />
-    );
+export default function AddFavoriteBtn({id}) {
+    const [isAdded, setIsAdded] = useState(false);
+    const [t] = useTranslation('draw_screen');
+    const iconSize = EStyleSheet.value('22rem');
+    const title = isAdded
+        ? t('competition_in_favorites')
+        : t('add_to_favourites');
+
     return (
-        <Pressable style={styles.btnContainer}>
-            <BTN_FAVORITE_GRADIENT />
-            {icon}
-            <Text style={styles.btnTitle}>Добавить в избранное</Text>
-        </Pressable>
+        <TouchableOpacity
+            style={styles.btnContainer}
+            onPress={() => setIsAdded(!isAdded)}>
+            {isAdded ? null : <BTN_FAVORITE_GRADIENT />}
+            <View style={styles.btnIcon}>
+                {isAdded ? (
+                    <StarActiveIcon width={iconSize} height={iconSize} />
+                ) : (
+                    <StarIcon width={iconSize} height={iconSize} />
+                )}
+            </View>
+            <Text style={styles.btnTitle}>{title}</Text>
+        </TouchableOpacity>
     );
 }

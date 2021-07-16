@@ -10,7 +10,7 @@ import ArrowsIcon from '_icons/relevance/arrows.svg';
 import {styles} from './styles';
 
 export default function AuthBtn({icon, titleKey}) {
-    const [t, r18n] = useTranslation('profile_screen');
+    const [t, i18n] = useTranslation('profile_screen');
     return (
         <Pressable style={styles.btnContainer}>
             {icon}

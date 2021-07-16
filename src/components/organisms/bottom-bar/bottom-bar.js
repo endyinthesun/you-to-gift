@@ -1,8 +1,7 @@
 //modules
 import React, {useRef, useEffect, useState} from 'react';
 import {View, Animated, Easing, useWindowDimensions} from 'react-native';
-import {observer} from 'mobx-react-lite';
-// import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
+import SafeAreaView from 'react-native-safe-area-view';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
@@ -65,7 +64,7 @@ export default function BottomBar({state, descriptors, navigation}) {
         Animated.timing(menuTranslateX, menuTranslateXConf).start();
     }, [bottomTab.bottomTabIndex]);
     return (
-        <View style={[styles.navContainer]}>
+        <View style={styles.navContainer}>
             <BOTTOM_BAR_GRADIENT />
             <View
                 style={[

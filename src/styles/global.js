@@ -27,6 +27,7 @@ export const initGlobalVar = () => {
         $FONT_ROBOTO_700: 'RobotoBold',
 
         //font sizes
+        $FONT_SIZE_9: '9rem',
         $FONT_SIZE_12: '12rem',
         $FONT_SIZE_13: '13rem',
         $FONT_SIZE_14: '14rem',
@@ -40,7 +41,7 @@ export const initGlobalVar = () => {
         //colors
         $SECONDARY: '#F2F6F7',
         $WHITE: '#FFFFFF',
-        $BLACK: '#000000',
+        $BLACK: '#2F2F2F',
         $GRAY: '#E4E8E9',
         $DARK_GRAY: '#484848',
         $TRANSPARENT: 'transparent',
