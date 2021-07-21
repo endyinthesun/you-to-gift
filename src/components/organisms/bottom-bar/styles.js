@@ -14,5 +14,6 @@ export const styles = EStyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
+        paddingBottom: 5,
     },
 });

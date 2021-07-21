@@ -14,7 +14,7 @@ export default function BottomBarItem({
     const menuItemTranslateY = useRef(new Animated.Value(0)).current;
     const menuItemTranslateYConf = {
         duration: 150,
-        toValue: isFocused ? EStyleSheet.value('-35rem') : 0,
+        toValue: isFocused ? -31 : 0,
         easing: Easing.inOut(Easing.ease),
         useNativeDriver: true,
     };

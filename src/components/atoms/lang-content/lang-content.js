@@ -20,7 +20,7 @@ import TurkeyIcon from '_icons/flags/turkey.svg';
 import otherStore from '_store/other-store';
 
 export default observer(function LangContent({disabled = false}) {
-    const [i18n] = useTranslation();
+    const [t, i18n] = useTranslation();
     const iconSize = EStyleSheet.value('56rem');
     const langData = [
         {
