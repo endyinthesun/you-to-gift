@@ -1,16 +1,16 @@
 //modules
-import React, {useState} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
 //components
-import {Header} from '_organisms/index';
-import {BG_GRADIENT} from '_styles/gradients';
+import {FilterBtn} from '_atoms/index';
 import {Categories, Relevance} from '_molecules/index';
-import FilterBtn from '_atoms/filter-btn';
+import {Header} from '_organisms/index';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';
+import {BG_GRADIENT} from '_styles/gradients';
 
 export default function ModalFilterScreen({onPress}) {
     return (

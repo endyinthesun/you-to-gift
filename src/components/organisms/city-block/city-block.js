@@ -3,9 +3,11 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
+//components
+import {InputCity} from '_atoms/index';
+
 //styles
 import {styles} from './styles';
-import {InputCity} from '_atoms/index';
 
 export default function CityBlock() {
     const [t] = useTranslation('settings_screen');

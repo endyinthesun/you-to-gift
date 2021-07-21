@@ -1,10 +1,12 @@
 //modules
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Text, View, Modal} from 'react-native';
 
 //components
 import {Header} from '_organisms/index';
-import ModalFilterScreen from '_screens/modal-filter-screen';
+
+//screens
+import ModalFilterScreen from '_screens/modal-filter-screen/modal-filter-screen';
 
 //styles
 import {contentContainerStyles} from '_styles/content-container';

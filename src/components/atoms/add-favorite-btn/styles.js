@@ -3,15 +3,17 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export const styles = EStyleSheet.create({
     btnContainer: {
         overflow: 'hidden',
-        flexDirection: 'row',
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: '25rem',
+        paddingRight: '25rem',
+        paddingLeft: '45rem',
         paddingVertical: '14rem',
         borderRadius: '10rem',
         backgroundColor: '#E4E0FD',
     },
     btnIcon: {
-        marginRight: '17rem',
+        position: 'absolute',
+        left: '17rem',
     },
     btnTitle: {
         fontSize: '$FONT_SIZE_14',

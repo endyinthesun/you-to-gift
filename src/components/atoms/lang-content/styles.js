@@ -1,6 +1,11 @@
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 export const styles = EStyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginTop: '25rem',
+    },
     btn: {
         justifyContent: 'center',
         alignItems: 'center',

@@ -1,5 +1,5 @@
 //modules
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Pressable, Text, View} from 'react-native';
 import {observer} from 'mobx-react-lite';
 import {useTranslation} from 'react-i18next';
@@ -20,7 +20,7 @@ import TurkeyIcon from '_icons/flags/turkey.svg';
 import otherStore from '_store/other-store';
 
 export default observer(function LangContent({disabled = false}) {
-    const [t, i18n] = useTranslation();
+    const [i18n] = useTranslation();
     const iconSize = EStyleSheet.value('56rem');
     const langData = [
         {
@@ -64,7 +64,7 @@ export default observer(function LangContent({disabled = false}) {
         // },
     ];
     return (
-        <>
+        <View style={styles.container}>
             {langData.map(({name, title, icon, id}) => (
                 <Pressable
                     key={id}
@@ -78,6 +78,6 @@ export default observer(function LangContent({disabled = false}) {
                     <Text style={styles.btnTitle}>{title}</Text>
                 </Pressable>
             ))}
-        </>
+        </View>
     );
 });

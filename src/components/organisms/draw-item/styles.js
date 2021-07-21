@@ -11,7 +11,9 @@ export const styles = EStyleSheet.create({
         // paddingBottom: '17rem',
         marginBottom: '20rem',
     },
-    dash: {
-        height: '1rem',
+    icon: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
     },
 });

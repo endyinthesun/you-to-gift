@@ -5,7 +5,8 @@
                 "settings_draws": "settings draws",
                 "account_authorization": "account authorization",
                 "draws_filter": "draws filter",
-                "draw": "draw"
+                "draw": "draw",
+                "information": "information"
         },
         "modal_filter_screen" : {
                 "category": "category",
@@ -28,13 +29,14 @@
                 "followers": "followers"
         },
         "draw_screen": {
+                "city": "city",
                 "draw_valid_until": "the draw is valid until:",
                 "add_to_favourites": "add to favourites",
                 "competition_in_favorites": "competition in favorites",
                 "show_rewards_competition": "show rewards of the competition",
                 "place":"place",
                 "physical_competition": "Physical competition",
-                "financial competition": "Financial competition",
+                "financial_competition": "Financial competition",
                 "show_conditions": "show conditions",
                 "attention": "attention!",
                 "competition_created_for_specific_region:": "The competition was created for a specific region:",
@@ -43,6 +45,10 @@
                 "number_of_participants": "Number of participants:",
                 "find_out_your_number": "Find out your number",
                 "download_excel_file": "Download Excel file"
+        },
+        "modal_info_screen" : {
+                "knowing_your_number" : "Knowing your number, you can make sure that the number assigned to you is unique and cannot be assigned to another participant. If a random number generator gives you a unique serial number, you will be the winner of the competition.",
+                "got_it": "Got it"
         }
 
 }

@@ -3,6 +3,50 @@ import {LinearGradient} from 'expo-linear-gradient';
 import {StyleSheet} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+export const ITEM_GRADIENT = ({
+    absoluteFill,
+    fillBottom,
+    height,
+    colors,
+    locations,
+}) => {
+    const absoluteFillStyles = {
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+    };
+    const fillBottomStyles = {
+        bottom: -1,
+        left: 0,
+        right: 0,
+    };
+    return (
+        <LinearGradient
+            colors={colors}
+            locations={locations}
+            start={{x: 0.1, y: 0.1}}
+            end={{x: 1, y: 0.9}}
+            style={[
+                {position: 'absolute'},
+                absoluteFill ? absoluteFillStyles : null,
+                fillBottom ? fillBottomStyles : null,
+                height ? {height: height} : '100%',
+            ]}
+        />
+    );
+};
+
+export const BG_REWARD_ITEM = () => (
+    <LinearGradient
+        colors={['#FFFFFF', '#d3ebfa']}
+        locations={[0.1, 0.8]}
+        start={{x: 0.2, y: 0}}
+        end={{x: 1, y: 1}}
+        style={StyleSheet.absoluteFill}
+    />
+);
+
 export const BTN_FAVORITE_GRADIENT = () => (
     <LinearGradient
         colors={['#88EDEC', '#D3BFF7']}
@@ -42,31 +86,3 @@ export const BOTTOM_BAR_GRADIENT = () => (
         }}
     />
 );
-
-export const DRAW_ITEM_GRADIENT = ({absoluteFill, fillBottom, height}) => {
-    const absoluteFillStyles = {
-        bottom: 0,
-        left: 0,
-        right: 0,
-        top: 0,
-    };
-    const fillBottomStyles = {
-        bottom: 0,
-        left: 0,
-        right: 0,
-    };
-    return (
-        <LinearGradient
-            colors={['#FFC107', '#F44336', '#9C27B0']}
-            locations={[0, 0.2, 1]}
-            start={{x: 0.1, y: 0.1}}
-            end={{x: 1, y: 0.9}}
-            style={[
-                {position: 'absolute'},
-                absoluteFill ? absoluteFillStyles : null,
-                fillBottom ? fillBottomStyles : null,
-                height ? {height: height} : '100%',
-            ]}
-        />
-    );
-};

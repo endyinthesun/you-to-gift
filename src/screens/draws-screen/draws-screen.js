@@ -1,6 +1,6 @@
 //modules
 import React, {useEffect, useState} from 'react';
-import {FlatList, Text, View, ActivityIndicator} from 'react-native';
+import {FlatList, View, ActivityIndicator} from 'react-native';
 import moment from 'moment';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 
@@ -22,7 +22,7 @@ export default function DrawsScreen({route, navigation}) {
     const [isLoading, setIsLoading] = useState(true);
 
     const tabBarHeight = useBottomTabBarHeight();
-
+    const convertTime = date => moment(`${date} +03:00`, 'DD-MM-YYYY HH:mm ZZ');
     useEffect(() => {
         _draws().then(({data: {results}}) => {
             const items = results.map(
@@ -33,14 +33,20 @@ export default function DrawsScreen({route, navigation}) {
                     get_type,
                     chanel: {image, subscribe, url, title, verificated},
                     valute: {symbol},
-                }) => ({
-                    id,
-                    all_price,
-                    date_end,
-                    get_type,
-                    chanel: {image, subscribe, url, title, verificated},
-                    valute: {symbol},
-                })
+                }) => {
+                    const dateEnd = convertTime(date_end).format('YYYY-MM-DD');
+                    const timeEnd = convertTime(date_end).format('HH:mm');
+
+                    return {
+                        id,
+                        all_price,
+                        dateEnd,
+                        timeEnd,
+                        get_type,
+                        chanel: {image, subscribe, url, title, verificated},
+                        valute: {symbol},
+                    };
+                }
             );
             setDrawsData(items);
             setIsLoading(false);
@@ -74,7 +80,8 @@ export default function DrawsScreen({route, navigation}) {
                             item: {
                                 id,
                                 all_price,
-                                date_end,
+                                dateEnd,
+                                timeEnd,
                                 get_type,
                                 chanel: {
                                     image,
@@ -91,7 +98,8 @@ export default function DrawsScreen({route, navigation}) {
                                 userName={title}
                                 amountSubs={subscribe}
                                 type={get_type}
-                                date={date_end}
+                                dateEnd={dateEnd}
+                                timeEnd={timeEnd}
                                 budget={all_price}
                                 currency={symbol}
                                 id={id}

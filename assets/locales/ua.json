@@ -5,7 +5,8 @@
                 "settings_draws": "налаштування розіграшів",
                 "account_authorization": "авторизація акаунта",
                 "draws_filter": "фільтр розіграшів",
-                "draw": "розіграш"
+                "draw": "розіграш",
+                "information": "інформація"
         },
         "modal_filter_screen" : {
                 "category": "категорія",
@@ -28,20 +29,25 @@
                 "followers": "підписників"
         },
         "draw_screen": {
+                "city": "місто",
                 "draw_valid_until": "розіграш актуальний до:",
                 "add_to_favourites": "додати в обрані",
                 "competition_in_favorites": "конкурс в обраному",
                 "show_rewards_competition": "показати призи конкурсу",
                 "place":"місце",
                 "physical_competition": "Фізичний приз",
-                "financial competition": "Фінансовий приз",
+                "financial_competition": "Фінансовий приз",
                 "show_conditions": "дивитися умови",
                 "attention": "увага!",
-                "competition_created_for_specific_region:": "Конкурс створено для конкретного регіону:",
+                "competition_created_for_specific_region": "Конкурс створено для конкретного регіону:",
                 "to_participate_you_must": "Для участі необхідно мати відкритий аккаунт на час проведення розіграшу. Виконавши всі умови даного конкурсу, Ви автоматично стаєте його учасником!",
                 "information_about_competition": "інформація про проведення",
-                "number_of_participants": "Кількість учасників':",
+                "number_of_participants": "Кількість учасників:",
                 "find_out_your_number": "Дізнатися свій номер",
                 "download_excel_file": "Завантажити Excel файл"
+        },
+        "modal_info_screen" : {
+                "knowing_your_number" : "Знаючи свій номер, ви можете переконатися, що присвоєний вам номер є унікальним і не може бути присвоєний іншому учаснику. Якщо генератор випадкових чисел видасть присвоєний вам унікальний порядковий номер, то саме ви станете переможцем конкурсу.",
+                "got_it": "Зрозуміло"
         }
 }

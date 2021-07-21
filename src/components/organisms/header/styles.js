@@ -26,7 +26,7 @@ export const styles = EStyleSheet.create({
     headerTitleLink: {
         fontSize: '$FONT_SIZE_16',
         fontFamily: '$FONT_ROBOTO_300',
-        color: '$fontColorLink',
+        color: '$BLUE',
         textDecorationLine: 'underline',
     },
 

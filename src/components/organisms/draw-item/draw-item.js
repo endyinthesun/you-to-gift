@@ -1,6 +1,6 @@
 //modules
 import React from 'react';
-import {Text, View, Pressable} from 'react-native';
+import {View, Pressable} from 'react-native';
 import Dash from 'react-native-dash';
 
 //SVGs
@@ -13,14 +13,15 @@ import {TopDrawItem, BottomDrawItem} from '_molecules/index';
 
 //styles
 import {styles} from './styles';
-import {DRAW_ITEM_GRADIENT} from '_styles/gradients';
+import {ITEM_GRADIENT} from '_styles/gradients';
 
 export default function DrawItem({
     imageUrl,
     userName,
     amountSubs,
     type,
-    date,
+    dateEnd,
+    timeEnd,
     budget,
     currency,
     id,
@@ -48,7 +49,8 @@ export default function DrawItem({
                     userName,
                     amountSubs,
                     type,
-                    date,
+                    dateEnd,
+                    timeEnd,
                     formatBudget,
                     currency,
                 })
@@ -61,21 +63,19 @@ export default function DrawItem({
                 sizeIcon={32}
                 sizeUserAva={46}
             />
-            <Dash
-                style={styles.dash}
-                dashColor={'#babdbd'}
-                dashThickness={1}
-                dashGap={4}
-            />
+            <Dash dashColor={'#B0B0B0'} dashThickness={0.7} dashGap={4} />
             <BottomDrawItem
-                date={date}
+                dateEnd={dateEnd}
                 budget={formatBudget}
                 currency={currency}
             />
-            <View style={{position: 'absolute', right: 0, bottom: 0}}>
-                {icon}
-            </View>
-            <DRAW_ITEM_GRADIENT fillBottom height={4} />
+            <View style={styles.icon}>{icon}</View>
+            <ITEM_GRADIENT
+                fillBottom
+                height={4}
+                colors={['#FFC107', '#F44336', '#9C27B0']}
+                locations={[0, 0.2, 1]}
+            />
         </Pressable>
     );
 }

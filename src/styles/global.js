@@ -14,10 +14,10 @@ export const initGlobalVar = () => {
         $rem: width / 376,
         $fontColor: '#484848',
         $fontInputColor: '#B0B0B0',
-        $fontColorLink: '#1FC1EF',
         $bgColor: '#e6e6e6',
         $authBtnColor: '#BFD4DF',
         $bottomBarHeight: '77rem',
+        $hashtag: '#2E89FF',
 
         //font families
         $FONT_ROBOTO_100: 'RobotoThin',
@@ -46,6 +46,8 @@ export const initGlobalVar = () => {
         $DARK_GRAY: '#484848',
         $TRANSPARENT: 'transparent',
         $WHITE_TRANSPARENT: 'rgba(255,255,255, 0.3)',
+        $BLUE: '#1FC1EF',
+        $BLUE_LIGHT: '#F0F8FC',
         $BLUE_TRANSPARENT: 'rgba(33, 60, 154, 0.2)',
         $RED: '#DA3B5A',
 

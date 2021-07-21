@@ -5,7 +5,7 @@ export const styles = EStyleSheet.create({
         borderRadius: '10rem',
         overflow: 'hidden',
     },
-    info: {
+    channel: {
         paddingHorizontal: '30rem',
         paddingTop: '30rem',
         paddingBottom: '24rem',
@@ -66,12 +66,46 @@ export const styles = EStyleSheet.create({
     addFavoriteBtn: {
         marginTop: '23rem',
     },
-    rewards: {
+    instPost: {
+        marginTop: '20rem',
+    },
+    spoilers: {
         marginTop: '15rem',
     },
     spoilerBtn: {
         textTransform: 'uppercase',
-        fontSize: '14rem',
+        fontSize: '$FONT_SIZE_14',
         fontFamily: '$FONT_ROBOTO_400',
+    },
+    info: {
+        marginTop: '50rem',
+    },
+    infoTitle: {
+        textAlign: 'center',
+        fontSize: '$FONT_SIZE_16',
+        fontFamily: '$FONT_ROBOTO_400',
+        color: '$WHITE',
+        textTransform: 'uppercase',
+    },
+    infoParticipants: {
+        marginTop: '15rem',
+        textAlign: 'center',
+        fontSize: '$FONT_SIZE_16',
+        fontFamily: '$FONT_ROBOTO_300',
+        color: '$WHITE',
+    },
+    participants: {
+        fontFamily: '$FONT_ROBOTO_400',
+    },
+    secondaryBtn: {
+        marginTop: '15rem',
+    },
+    iconSearch: {
+        width: '27rem',
+        height: '27rem',
+    },
+    iconExcel: {
+        width: '30rem',
+        height: '28rem',
     },
 });

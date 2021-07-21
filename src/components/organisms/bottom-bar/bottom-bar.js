@@ -1,13 +1,12 @@
 //modules
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {View, Animated, Easing, useWindowDimensions} from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
 
 //components
-import BottomBarItem from '_atoms/bottom-bar-item';
+import {BottomBarItem} from '_atoms/index';
 
 //style
 import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/global';

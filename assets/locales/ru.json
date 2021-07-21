@@ -5,7 +5,8 @@
                 "settings_draws": "настройки розыгрышей",
                 "account_authorization": "авторизация аккаунта",
                 "draws_filter": "фильтр розыгрышей",
-                "draw": "розыгрыш"
+                "draw": "розыгрыш",
+                "information": "информация"
         },
         "modal_filter_screen" : {
                 "category": "категория",
@@ -28,20 +29,25 @@
                 "followers": "подписчиков"
         },
         "draw_screen": {
+                "city": "город",
                 "draw_valid_until": "розыгрыш актуален до:",
                 "add_to_favourites": "добавить в избранное",
                 "competition_in_favorites": "конкурс в избранном",
                 "show_rewards_competition": "показать призы конкурса",
                 "place":"место",
                 "physical_competition": "Физический приз",
-                "financial competition": "Финансовый приз",
+                "financial_competition": "Финансовый приз",
                 "show_conditions": "смотреть условия",
                 "attention": "внимания!",
-                "competition_created_for_specific_region:": "Конкурс создан для конкретного региона:",
+                "competition_created_for_specific_region": "Конкурс создан для конкретного региона:",
                 "to_participate_you_must": "Для участия необходимо иметь открытий аккаунт на время проведения розыгрыша. Выполнив все условия данного конкурса, Вы автоматически становитесь его участником!",
                 "information_about_competition": "информация о проведении",
                 "number_of_participants": "Количество участников:",
                 "find_out_your_number": "Узнать свой номер",
                 "download_excel_file": "Скачать Excel файл"
+        },
+        "modal_info_screen" : {
+                "knowing_your_number" : "Зная свой номер, вы можете убедиться, что присвоенный вам номер является уникальным и не может быть присвоен другому участнику. Если генератор случайных чисел выдаст присвоенный вам уникальный порядковый номер, то именно вы станете победителем конкурса.",
+                "got_it": "Понятно"
         }
 }

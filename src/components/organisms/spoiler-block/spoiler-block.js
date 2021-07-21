@@ -1,12 +1,10 @@
 //modules
 import React, {useState} from 'react';
 import {View} from 'react-native';
+import Collapsible from 'react-native-collapsible';
 
 //components
-import {SpoilerContent, SpoilerBtn} from '_molecules/index';
-
-//styles
-import {styles} from './styles';
+import {SpoilerBtn} from '_molecules/index';
 
 export default function SpoilerBlock({
     defaultIsOpen,
@@ -17,7 +15,7 @@ export default function SpoilerBlock({
 }) {
     const [isOpen, toggleIsOpen] = useState(defaultIsOpen);
     return (
-        <View style={styles.container}>
+        <View>
             <SpoilerBtn
                 toggleIsOpen={toggleIsOpen}
                 isOpen={isOpen}
@@ -25,7 +23,9 @@ export default function SpoilerBlock({
                 icon={icon}
                 stylesBtn={stylesBtn}
             />
-            <SpoilerContent isOpen={isOpen} content={content} />
+            <View>
+                <Collapsible collapsed={!isOpen}>{content}</Collapsible>
+            </View>
         </View>
     );
 }

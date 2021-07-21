@@ -1,38 +1,46 @@
 //modules
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Text, View, Image} from 'react-native';
-import axios from 'axios';
 
 //styles
 import {generateStyles} from './styles';
-import {DRAW_ITEM_GRADIENT} from '_styles/gradients';
+import {ITEM_GRADIENT} from '_styles/gradients';
 
 export default function UserAva({size, imageUrl}) {
     const styles = generateStyles(size);
 
-    const [noImage, setNoImage] = useState(false);
+    // const [noImage, setNoImage] = useState(false);
 
-    useEffect(() => {
-        axios.get(imageUrl).catch(() => {
-            setNoImage(true);
-        });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get(imageUrl)
+    //         .then(() => {
+    //             setNoImage(false);
+    //         })
+    //         .catch(() => {
+    //             setNoImage(true);
+    //         });
+    // }, [imageUrl]);
     return (
         <View style={styles.userAvaContainer}>
-            <DRAW_ITEM_GRADIENT absoluteFill />
+            <ITEM_GRADIENT
+                absoluteFill
+                colors={['#FFC107', '#F44336', '#9C27B0']}
+                locations={[0, 0.2, 1]}
+            />
             <View style={styles.userAva}>
-                {noImage ? (
-                    <View style={styles.noImageContainer}>
-                        <Text style={styles.noImageText}>No</Text>
-                        <Text style={styles.noImageText}>image</Text>
-                    </View>
-                ) : (
+                {imageUrl ? (
                     <Image
                         style={{flex: 1}}
                         source={{
                             uri: imageUrl,
                         }}
                     />
+                ) : (
+                    <View style={styles.noImageContainer}>
+                        <Text style={styles.noImageText}>No</Text>
+                        <Text style={styles.noImageText}>image</Text>
+                    </View>
                 )}
             </View>
         </View>
