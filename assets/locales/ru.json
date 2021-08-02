@@ -1,0 +1,63 @@
+{
+    "header": {
+        "actual_draws": "актуальные розыгрыши",
+        "favorite_draws": "избранные розыгрыши",
+        "settings_draws": "настройки розыгрышей",
+        "account_authorization": "авторизация аккаунта",
+        "draws_filter": "фильтр розыгрышей",
+        "draw": "розыгрыш",
+        "information": "информация"
+    },
+    "modal_filter_screen": {
+        "category": "категория",
+        "all": "все",
+        "active": "активные",
+        "waiting": "ожидают завершения",
+        "completed": "завершенные",
+        "relevance": "актуальность",
+        "show": "показать"
+    },
+    "settings_screen": {
+        "enter_your_city": "укажите ваш город"
+    },
+    "profile_screen": {
+        "sign_in_instagram": "войти c instagram",
+        "sign_in_facebook": "войти c facebook",
+        "sign_out": "выйти из аккаунта"
+    },
+    "draws_screen": {
+        "followers": "подписчиков"
+    },
+    "favorite_draws_screen": {
+        "there_is_nothing_here": "здесь ничего нет",
+        "add_at_least_one_draw": "добавьте хотя бы один розыгрыш"
+    },
+    "draw_screen": {
+        "city": "город",
+        "draw_valid_until": "розыгрыш актуален до:",
+        "add_to_favourites": "добавить в избранное",
+        "competition_in_favorites": "конкурс в избранном",
+        "show_rewards_competition": "показать призы конкурса",
+        "place": "место",
+        "physical_competition": "Физический приз",
+        "financial_competition": "Финансовый приз",
+        "show_conditions": "смотреть условия",
+        "attention": "внимания!",
+        "competition_created_for_specific_region": "Конкурс создан для конкретного региона:",
+        "to_participate_you_must": "Для участия необходимо иметь открытий аккаунт на время проведения розыгрыша. Выполнив все условия данного конкурса, Вы автоматически становитесь его участником!",
+        "information_about_competition": "информация о проведении",
+        "number_of_participants": "Количество участников:",
+        "find_out_your_number": "Узнать свой номер",
+        "download_excel_file": "Скачать Excel файл"
+    },
+    "modal_info_screen": {
+        "knowing_your_number": "Зная свой номер, вы можете убедиться, что присвоенный вам номер является уникальным и не может быть присвоен другому участнику. Если генератор случайных чисел выдаст присвоенный вам уникальный порядковый номер, то именно вы станете победителем конкурса.",
+        "got_it": "Понятно"
+    },
+    "notification": {
+        "you_have_added_competition_to_your_favorites": "Вы добавили конкурс в избранное",
+        "to_participate_meet_the_conditions": "Чтобы принять в нем участие -\nвыполните условия",
+        "type_of_reward": "Тип вознаграждения",
+        "choose_reward": "Выберите вознаграждение"
+    }
+}

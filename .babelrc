@@ -1,0 +1,25 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "extensions": [".js"],
+                "root": ["./src"],
+                "alias": {
+                    "_assets": "./assets",
+                    "_atoms": "./src/components/atoms",
+                    "_molecules": "./src/components/molecules",
+                    "_organisms": "./src/components/organisms",
+                    "_routes": "./src/routes",
+                    "_screens": "./src/screens",
+                    "_services": "./src/services",
+                    "_styles": "./src/styles",
+                    "_images": "./assets/images",
+                    "_icons": "./assets/icons",
+                    "_locales": "./assets/locales",
+                    "_store": "./src/store"
+                }
+            }
+        ]
+    ]
+}
