@@ -2,14 +2,17 @@
 import {makeAutoObservable} from 'mobx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-class OtherStore {
-  lang = '';
+const _STORE = '@lang';
+
+export default class LangStore {
+  lang = 'ru';
+
   constructor() {
     makeAutoObservable(this);
   }
-  changeLang(current) {
-    this.lang = current;
+
+  changeLang(lang) {
+    this.lang = lang;
+    AsyncStorage.setItem(_STORE, lang);
   }
 }
-
-export default new OtherStore();

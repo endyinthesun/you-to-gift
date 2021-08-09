@@ -12,18 +12,17 @@ import {styles} from './styles';
 import RussianIcon from '_icons/flags/russia.svg';
 import EnglishIcon from '_icons/flags/united-kingdom.svg';
 import UkrainianIcon from '_icons/flags/ukraine.svg';
-import PolandIcon from '_icons/flags/poland.svg';
-import FranceIcon from '_icons/flags/france.svg';
-import TurkeyIcon from '_icons/flags/turkey.svg';
+// import PolandIcon from '_icons/flags/poland.svg';
+// import FranceIcon from '_icons/flags/france.svg';
+// import TurkeyIcon from '_icons/flags/turkey.svg';
 
 //store
-import otherStore from '_store/other-store';
+import {useStores} from '_store/index';
 
-//async storage
-import {setLang} from '_services/async-storage';
-
-function LangContent({disabled = false}) {
+export default observer(function LangContent({disabled = false}) {
   const [t, i18n] = useTranslation();
+  const {langStore} = useStores();
+
   const iconSize = EStyleSheet.value('56rem');
   const langData = [
     {
@@ -39,7 +38,7 @@ function LangContent({disabled = false}) {
       id: 2,
     },
     {
-      name: 'ua',
+      name: 'uk',
       title: 'Українська',
       icon: <UkrainianIcon width={iconSize} height={iconSize} />,
       id: 3,
@@ -72,8 +71,7 @@ function LangContent({disabled = false}) {
         <Pressable
           key={id}
           onPress={() => {
-            otherStore.changeLang(name);
-            setLang(name);
+            langStore.changeLang(name);
             i18n.changeLanguage(name);
           }}
           style={styles.btn}
@@ -84,6 +82,4 @@ function LangContent({disabled = false}) {
       ))}
     </View>
   );
-}
-
-export default observer(LangContent);
+});

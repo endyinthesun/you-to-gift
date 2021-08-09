@@ -1,9 +1,18 @@
 //modules
 import React, {useState, useEffect, useCallback, useRef} from 'react';
-import {View, Modal, ActivityIndicator, FlatList, Text} from 'react-native';
+import {
+  View,
+  Modal,
+  ActivityIndicator,
+  FlatList,
+  Text,
+  BackHandler,
+  Platform,
+} from 'react-native';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import moment from 'moment';
 import {observer} from 'mobx-react-lite';
+import axios from 'axios';
 
 //components
 import {DrawItem, Header} from '_organisms/index';
@@ -22,7 +31,6 @@ import SadEmoji from '_icons/sad-emoji.svg';
 
 //services
 import {_drawsFavorites} from '_services/service';
-import axios from 'axios';
 
 //stores
 import {useStores} from '_store/index';
@@ -32,6 +40,7 @@ import {BG_GRADIENT} from '_styles/gradients';
 import {styles} from '_screens/draws-screen/styles';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {useTranslation} from 'react-i18next';
+import {useFocusEffect} from '@react-navigation/native';
 
 export default observer(function FavoriteDrawsScreen({navigation}) {
   const [t, i18n] = useTranslation('favorite_draws_screen');
@@ -45,9 +54,10 @@ export default observer(function FavoriteDrawsScreen({navigation}) {
   const [isNothingToView, setIsNothingToView] = useState(false);
 
   //global states
-  const {favoriteDrawsStore} = useStores();
+  const {favoriteDrawsStore, bottomTabBarStore} = useStores();
   const {currentCategoryFilter, currentRelevanceFilter, favoritesIds} =
     favoriteDrawsStore;
+  const {setTabBarPosition} = bottomTabBarStore;
 
   const tabBarHeight = useBottomTabBarHeight();
   const convertTime = date => moment(`${date} +03:00`, 'DD-MM-YYYY HH:mm ZZ');
@@ -183,12 +193,27 @@ export default observer(function FavoriteDrawsScreen({navigation}) {
     />
   );
   const sadEmojiSize = EStyleSheet.value('94rem');
+
+  useFocusEffect(
+    useCallback(() => {
+      if (Platform.OS === 'ios') return;
+      const onBackPress = () => {
+        navigation.navigate('DrawsItems');
+        setTabBarPosition(0);
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
   return (
     <View style={{flex: 1}}>
       <Header
         titleKey={'favorite_draws'}
         iconType={'filter'}
         onPress={() => setModalVisible(true)}
+        bold={'first'}
       />
       <View style={{flex: 1, justifyContent: 'center'}}>
         <BG_GRADIENT />

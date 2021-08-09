@@ -3,7 +3,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 export const styles = EStyleSheet.create({
   container: {
     borderRadius: '14rem',
-    // height: 150,
     justifyContent: 'space-between',
     overflow: 'hidden',
     backgroundColor: '$WHITE',

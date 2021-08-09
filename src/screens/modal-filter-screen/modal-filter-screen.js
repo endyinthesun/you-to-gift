@@ -32,16 +32,6 @@ export default function ModalFilterScreen({closeModal, scrollToTop}) {
   );
   const [amountParticipants, setAmountParticipants] = useState(0);
 
-  //styles value
-  const stylesValue = {
-    transparentColor: EStyleSheet.value('$TRANSPARENT'),
-    whiteColor: EStyleSheet.value('$WHITE'),
-    borderWidth: EStyleSheet.value('2rem'),
-    fontColor: EStyleSheet.value('$fontColor'),
-    FONT_ROBOTO_500: EStyleSheet.value('$FONT_ROBOTO_500'),
-    FONT_ROBOTO_300: EStyleSheet.value('$FONT_ROBOTO_300'),
-  };
-
   useEffect(() => {
     let cancel;
     _draws(
@@ -63,6 +53,16 @@ export default function ModalFilterScreen({closeModal, scrollToTop}) {
       cancel();
     };
   }, [currentCategory, currentRelevance]);
+
+  //styles value
+  const stylesValue = {
+    transparentColor: EStyleSheet.value('$TRANSPARENT'),
+    whiteColor: EStyleSheet.value('$WHITE'),
+    borderWidth: EStyleSheet.value('2rem'),
+    fontColor: EStyleSheet.value('$fontColor'),
+    FONT_ROBOTO_500: EStyleSheet.value('$FONT_ROBOTO_500'),
+    FONT_ROBOTO_300: EStyleSheet.value('$FONT_ROBOTO_300'),
+  };
   return (
     <View style={{flex: 1}}>
       <SafeAreaView style={{flex: 0}} />
@@ -71,6 +71,7 @@ export default function ModalFilterScreen({closeModal, scrollToTop}) {
           titleKey={'draws_filter'}
           iconType={'back'}
           onPress={closeModal}
+          bold={'first'}
         />
         <View style={{flex: 1}}>
           <BG_GRADIENT />

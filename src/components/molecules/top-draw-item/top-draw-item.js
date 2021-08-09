@@ -1,6 +1,6 @@
 //modules
 import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -16,53 +16,53 @@ import GiveIcon from '_icons/categories/give.svg';
 import {styles} from './styles';
 
 export default function TopDrawItem({
-    imageUrl,
-    userName,
-    amountSubs,
-    type,
-    sizeIcon = 25,
-    sizeUserAva = 40,
+  imageUrl,
+  userName,
+  amountSubs,
+  type,
+  sizeIcon = 25,
+  sizeUserAva = 40,
 }) {
-    const [t] = useTranslation('draws_screen');
+  const [t] = useTranslation('draws_screen');
 
-    //amount subscribers
-    const moreThousand = amountSubs >= 1000;
-    const modifyAmountSubs = moreThousand
-        ? Math.trunc(amountSubs / 1000)
-        : amountSubs;
+  //amount subscribers
+  const moreThousand = amountSubs >= 1000;
+  const modifyAmountSubs = moreThousand
+    ? Math.trunc(amountSubs / 1000)
+    : amountSubs;
 
-    const textAmountSubs = moreThousand
-        ? `${modifyAmountSubs}K`
-        : modifyAmountSubs;
+  const textAmountSubs = moreThousand
+    ? `${modifyAmountSubs}K`
+    : modifyAmountSubs;
 
-    //icons
-    const sizeIconREM = EStyleSheet.value(`${sizeIcon}rem`);
-    const sizeUserAvaREM = EStyleSheet.value(`${sizeUserAva}rem`);
+  //icons
+  const sizeIconREM = EStyleSheet.value(`${sizeIcon}rem`);
+  const sizeUserAvaREM = EStyleSheet.value(`${sizeUserAva}rem`);
 
-    const isInst = type === 'instagram';
-    const isLike = type === 'liketime';
-    const isGive = type === 'give';
+  const isInst = type === 'instagram';
+  const isLike = type === 'liketime';
+  const isGive = type === 'give';
 
-    const icon = isInst ? (
-        <InstIcon width={sizeIconREM} height={sizeIconREM} />
-    ) : isLike ? (
-        <LikeIcon width={sizeIconREM} height={sizeIconREM} />
-    ) : isGive ? (
-        <GiveIcon width={sizeIconREM} height={sizeIconREM} />
-    ) : null;
+  const icon = isInst ? (
+    <InstIcon width={sizeIconREM} height={sizeIconREM} />
+  ) : isLike ? (
+    <LikeIcon width={sizeIconREM} height={sizeIconREM} />
+  ) : isGive ? (
+    <GiveIcon width={sizeIconREM} height={sizeIconREM} />
+  ) : null;
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.left}>
-                <UserAva size={sizeUserAvaREM} imageUrl={imageUrl} />
-                <View style={styles.userInfo}>
-                    <Text style={styles.userName}>{userName}</Text>
-                    <Text style={styles.userSubs}>
-                        {textAmountSubs} {t('followers')}
-                    </Text>
-                </View>
-            </View>
-            <View style={styles.right}>{icon}</View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.left}>
+        <UserAva size={sizeUserAvaREM} imageUrl={imageUrl} />
+        <View style={styles.userInfo}>
+          <Text style={styles.userName}>{userName}</Text>
+          <Text style={styles.userSubs}>
+            {textAmountSubs} {t('followers')}
+          </Text>
         </View>
-    );
+      </View>
+      <View style={styles.right}>{icon}</View>
+    </View>
+  );
 }

@@ -1,12 +1,9 @@
 //modules
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createBottomTabNavigator,
-  useBottomTabBarHeight,
-} from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import SafeAreaView from 'react-native-safe-area-view';
 import RNBootSplash from 'react-native-bootsplash';
@@ -28,6 +25,7 @@ import {
   SettingsScreen,
   ProfileScreen,
   DrawScreen,
+  FindParticipantScreen,
 } from '_screens/index';
 
 //components
@@ -61,7 +59,7 @@ export default function RootRouter() {
           }}
           tabBar={props => <BottomBar {...props} />}>
           <TabNav.Screen
-            name="Draws"
+            name="DrawsItems"
             component={DrawsScreen}
             options={{
               icon: <GiftIcon />,
@@ -106,6 +104,10 @@ export default function RootRouter() {
           }}>
           <MainStack.Screen name={'Draws'} component={TabNavScreen} />
           <MainStack.Screen name={'Draw'} component={DrawScreen} />
+          <MainStack.Screen
+            name={'FindNumber'}
+            component={FindParticipantScreen}
+          />
         </MainStack.Navigator>
       </NavigationContainer>
       <Toast

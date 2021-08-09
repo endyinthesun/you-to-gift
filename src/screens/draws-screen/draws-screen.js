@@ -1,10 +1,20 @@
 //modules
 import React, {useEffect, useState, useCallback, useRef} from 'react';
-import {FlatList, View, ActivityIndicator, Modal} from 'react-native';
+import {
+  FlatList,
+  View,
+  ActivityIndicator,
+  Modal,
+  BackHandler,
+  ToastAndroid,
+  Platform,
+} from 'react-native';
 import {observer} from 'mobx-react-lite';
 import moment from 'moment';
 import {useBottomTabBarHeight} from '@react-navigation/bottom-tabs';
 import axios from 'axios';
+import {useFocusEffect} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 //components
 import {Header, DrawItem} from '_organisms/index';
@@ -30,8 +40,11 @@ import {BG_GRADIENT} from '_styles/gradients';
 //stores
 import {useStores} from '_store/index';
 
-export default observer(function DrawsScreen({route, navigation}) {
+export default observer(function DrawsScreen({navigation}) {
+  const [t, i18n] = useTranslation('notification');
   const flatList = useRef();
+  const exitApp = useRef(0);
+
   //global states
   const {actualDrawsStore} = useStores();
   const {currentCategoryFilter, currentRelevanceFilter, pageNumber} =
@@ -46,14 +59,12 @@ export default observer(function DrawsScreen({route, navigation}) {
   const [isLoadingPage, setIsLoadingPage] = useState(false);
 
   const tabBarHeight = useBottomTabBarHeight();
-  const convertTime = date => moment(`${date} +03:00`, 'DD-MM-YYYY HH:mm ZZ');
 
   useEffect(() => {
     let cancel;
     if (pageNumber > 1) {
       setIsLoadingPage(true);
     }
-    console.log('page number--- ', pageNumber);
 
     _draws(
       {
@@ -73,7 +84,6 @@ export default observer(function DrawsScreen({route, navigation}) {
           all_price,
           date_end,
           get_type,
-          status,
           chanel: {image, subscribe, url, title, verificated},
           valute: {symbol},
         }) => {
@@ -90,7 +100,6 @@ export default observer(function DrawsScreen({route, navigation}) {
           };
         },
       );
-
       if (pageNumber === 1) {
         setIsLoading(false);
       } else {
@@ -107,7 +116,7 @@ export default observer(function DrawsScreen({route, navigation}) {
     };
   }, [pageNumber, currentCategoryFilter, currentRelevanceFilter]);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     const difference = drawsCount - drawsData.length;
     const remainder = drawsCount % 10;
 
@@ -115,7 +124,7 @@ export default observer(function DrawsScreen({route, navigation}) {
     if (difference !== remainder && drawsCount > 10) {
       actualDrawsStore.incrementPageNumber();
     }
-  };
+  }, []);
 
   const renderItem = useCallback(({item}) => {
     //amount subscribers
@@ -173,21 +182,43 @@ export default observer(function DrawsScreen({route, navigation}) {
     );
   }, []);
   const keyExtractor = useCallback(item => item.id.toString(), []);
+
   const renderListFooter = () =>
     isLoadingPage ? <ActivityIndicator size={'large'} color={'white'} /> : null;
+  const convertTime = date => moment(`${date} +03:00`, 'DD-MM-YYYY HH:mm ZZ');
 
-  const getItemLayout = (data, index) => ({
-    length: 150,
-    offset: 150 * index,
-    index,
-  });
+  useFocusEffect(
+    useCallback(() => {
+      if (Platform.OS === 'ios') return;
+      const backAction = () => {
+        setTimeout(() => {
+          exitApp.current = 0;
+        }, 2000);
+
+        if (exitApp.current) {
+          BackHandler.exitApp();
+        } else {
+          exitApp.current += 1;
+          ToastAndroid.show(
+            t('press_back_again_to_exit_app'),
+            ToastAndroid.SHORT,
+          );
+        }
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', backAction);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', backAction);
+    }, []),
+  );
   return (
     <View style={{flex: 1}}>
       <Header
         titleKey={'actual_draws'}
-        actualDraws={'Saint-Petersburg'}
+        actualFor={'Saint-Petersburg'}
         iconType={'filter'}
         onPress={() => setModalVisible(true)}
+        bold={'all'}
       />
       <View style={{flex: 1, justifyContent: 'center'}}>
         <BG_GRADIENT />
@@ -209,7 +240,6 @@ export default observer(function DrawsScreen({route, navigation}) {
             ListFooterComponent={renderListFooter}
             removeClippedSubviews={true}
             maxToRenderPerBatch={8}
-            // getItemLayout={getItemLayout}
             windowSize={15}
             ListFooterComponentStyle={styles.footerList}
             contentContainerStyle={styles.flatListContainer}

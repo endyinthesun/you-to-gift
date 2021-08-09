@@ -1,4 +1,3 @@
-import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {Dimensions} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -54,8 +53,8 @@ export const initGlobalVar = () => {
 
     //spacing
     $PADDING_HORIZONTAL_TAB_MENU: PADDING_HORIZONTAL_TAB_MENU,
-    $PADDING_HORIZONTAL_CONTAINER: '22rem',
+    $PADDING_HORIZONTAL_CONTAINER: '20rem',
     $PADDING_VERTICAL_CONTAINER: '30rem',
-    $LETTER_SPACING: '0.5rem',
+    $LETTER_SPACING: '0.3rem',
   });
 };

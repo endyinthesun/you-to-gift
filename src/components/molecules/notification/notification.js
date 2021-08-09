@@ -1,6 +1,6 @@
 //modules
-import React, {useRef, useEffect, useCallback} from 'react';
-import {View, Text, Animated, Easing, Pressable} from 'react-native';
+import React, {useCallback} from 'react';
+import {View, Text, Pressable} from 'react-native';
 import {observer} from 'mobx-react-lite';
 import Toast from 'react-native-toast-message';
 
@@ -22,14 +22,13 @@ export default observer(function Notification({type}) {
   const [t] = useTranslation('notification');
 
   const {favoriteDrawsStore} = useStores();
-  const {notification, setNotification} = favoriteDrawsStore;
+  const {notification} = favoriteDrawsStore;
 
   const isError = type === 'error';
   const isSuccess = type === 'success';
 
   const onCloseNotification = useCallback(() => {
     Toast.hide();
-    // setNotification(false);
   }, [notification]);
 
   const icon = isError ? <ErrorIcon /> : isSuccess ? <SuccessIcon /> : null;

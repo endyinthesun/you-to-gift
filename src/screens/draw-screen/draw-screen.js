@@ -25,7 +25,7 @@ import {_draw, _excelLink} from '_services/service';
 //SVGs
 import ClockIcon from '_icons/clock-gray.svg';
 import CalendarIcon from '_icons/calendar.svg';
-import SearchIcon from '_icons/search.svg';
+import SearchBlueIcon from '_icons/search-blue.svg';
 import ExcelIcon from '_icons/excel.svg';
 
 //styles
@@ -54,6 +54,7 @@ export default function DrawScreen({route, navigation}) {
 
   useEffect(() => {
     _draw(id).then(({data}) => {
+      // console.log('data-- ', JSON.stringify(data, '', 2));
       const rewards = data.reward.map(
         ({get_type, name, level, price, valute}) => ({
           get_type,
@@ -97,9 +98,10 @@ export default function DrawScreen({route, navigation}) {
       <View style={{flex: 1, overflow: 'hidden'}}>
         <Header
           titleKey={'draw'}
+          amountDraw={id}
           iconType={'back'}
-          screenDraw={id}
           onPress={() => navigation.goBack()}
+          bold={'last'}
         />
 
         <View style={{flex: 1}}>
@@ -192,7 +194,7 @@ export default function DrawScreen({route, navigation}) {
                   </Text>
                   <View style={styles.secondaryBtn}>
                     <SecondaryBtn
-                      icon={<SearchIcon style={styles.iconSearch} />}
+                      icon={<SearchBlueIcon style={styles.iconSearch} />}
                       title={t('find_out_your_number')}
                       gradient={
                         <ITEM_GRADIENT
@@ -201,6 +203,12 @@ export default function DrawScreen({route, navigation}) {
                           colors={['#1DE5E2', '#B588F7']}
                           locations={[0.1, 0.8]}
                         />
+                      }
+                      onPress={() =>
+                        navigation.navigate('FindNumber', {
+                          id,
+                          participants: itemData.userAmount,
+                        })
                       }
                     />
                   </View>

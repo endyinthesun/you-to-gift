@@ -1,7 +1,6 @@
 //modules
 import React from 'react';
 import {Pressable, Text, View} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {useTranslation} from 'react-i18next';
 
 //SVGs

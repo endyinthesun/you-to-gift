@@ -1,7 +1,8 @@
 //modules
-import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
+import React, {useState, useEffect, useCallback} from 'react';
+import {BackHandler, Platform, View} from 'react-native';
 import {observer} from 'mobx-react-lite';
+import {useFocusEffect} from '@react-navigation/native';
 
 //components
 import {CityBlock, Header, SpoilerBlock} from '_organisms/index';
@@ -15,21 +16,25 @@ import PolandIcon from '_icons/flags/poland.svg';
 import FranceIcon from '_icons/flags/france.svg';
 import TurkeyIcon from '_icons/flags/turkey.svg';
 
-//styles
-import {contentContainerStyles} from '_styles/content-container';
-import {BG_GRADIENT} from '_styles/gradients';
-
 //store
-import otherStore from '_store/other-store';
+import {useStores} from '_store/index';
 
 //async storage
 import {getLang} from '_services/async-storage';
 
+//styles
+import {contentContainerStyles} from '_styles/content-container';
+import {BG_GRADIENT} from '_styles/gradients';
+
 function SettingsScreen({navigation}) {
+  const {langStore, bottomTabBarStore} = useStores();
+  const {setTabBarPosition} = bottomTabBarStore;
+
   const [btnData, setBtnData] = useState({
     title: null,
     icon: null,
   });
+
   useEffect(() => {
     getLang().then(res => {
       switch (res) {
@@ -45,7 +50,7 @@ function SettingsScreen({navigation}) {
             title: 'English language',
           });
           break;
-        case 'ua':
+        case 'uk':
           setBtnData({
             icon: <UkrainianIcon />,
             title: 'Українська мова',
@@ -77,14 +82,26 @@ function SettingsScreen({navigation}) {
           });
       }
     });
-  }, [otherStore.lang]);
+  }, [langStore.lang]);
 
   const {title, icon} = btnData;
 
+  useFocusEffect(
+    useCallback(() => {
+      if (Platform.OS === 'ios') return;
+      const onBackPress = () => {
+        navigation.navigate('DrawsItems');
+        setTabBarPosition(0);
+        return true;
+      };
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, []),
+  );
   return (
     <View style={{flex: 1}}>
-      <Header titleKey={'settings_draws'} />
-
+      <Header titleKey={'settings_draws'} bold={'first'} />
       <View style={contentContainerStyles.container}>
         <BG_GRADIENT />
         <SpoilerBlock

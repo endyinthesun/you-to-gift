@@ -12,10 +12,7 @@ import StarActiveIcon from '_icons/bottom-bar/star-active.svg';
 
 //styles
 import {styles} from './styles';
-import {
-  BTN_FAVORITE_ACTIVE_GRADIENT,
-  BTN_FAVORITE_GRADIENT,
-} from '_styles/gradients';
+import {BTN_FAVORITE_GRADIENT} from '_styles/gradients';
 
 //async storage
 import {getFavoritesId, setFavoritesId} from '_services/async-storage';
@@ -35,14 +32,14 @@ export default observer(function AddFavoriteBtn({id}) {
     ? t('competition_in_favorites')
     : t('add_to_favourites');
 
-  const setFavoriteStatus = () => {
+  const setFavoriteStatus = useCallback(() => {
     setFavoritesId(id).then(favoritesId => {
       const parsedJSON = JSON.parse(favoritesId);
       if (favoritesId !== null) {
         setFavoritesIds(parsedJSON);
       }
     });
-  };
+  });
 
   const containsId = favoritesIds.includes(id);
 
@@ -53,7 +50,7 @@ export default observer(function AddFavoriteBtn({id}) {
         setFavoritesIds(parsedJSON);
       }
     });
-  }, []);
+  }, [setFavoritesIds]);
 
   useEffect(() => {
     if (containsId) {
@@ -61,7 +58,7 @@ export default observer(function AddFavoriteBtn({id}) {
     } else {
       setIsFavorites(false);
     }
-  }, [favoritesIds]);
+  }, [containsId]);
   const onPressCallback = useCallback(() => {
     setFavoriteStatus();
     setNotification(true);
@@ -70,7 +67,7 @@ export default observer(function AddFavoriteBtn({id}) {
         type: 'success',
       });
     }
-  }, [isFavorites]);
+  }, [isFavorites, setFavoriteStatus, setNotification]);
   return (
     <TouchableOpacity style={styles.btnContainer} onPress={onPressCallback}>
       {isFavorites ? null : <BTN_FAVORITE_GRADIENT />}

@@ -7,25 +7,25 @@ import Collapsible from 'react-native-collapsible';
 import {SpoilerBtn} from '_molecules/index';
 
 export default function SpoilerBlock({
-    defaultIsOpen,
-    title,
-    icon,
-    content,
-    stylesBtn,
+  defaultIsOpen,
+  title,
+  icon,
+  content,
+  stylesBtn,
 }) {
-    const [isOpen, toggleIsOpen] = useState(defaultIsOpen);
-    return (
-        <View>
-            <SpoilerBtn
-                toggleIsOpen={toggleIsOpen}
-                isOpen={isOpen}
-                title={title}
-                icon={icon}
-                stylesBtn={stylesBtn}
-            />
-            <View>
-                <Collapsible collapsed={!isOpen}>{content}</Collapsible>
-            </View>
-        </View>
-    );
+  const [isOpen, toggleIsOpen] = useState(defaultIsOpen);
+  return (
+    <View>
+      <SpoilerBtn
+        toggleIsOpen={toggleIsOpen}
+        isOpen={isOpen}
+        title={title}
+        icon={icon}
+        stylesBtn={stylesBtn}
+      />
+      <View>
+        <Collapsible collapsed={!isOpen}>{content}</Collapsible>
+      </View>
+    </View>
+  );
 }

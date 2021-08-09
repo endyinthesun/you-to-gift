@@ -15,7 +15,8 @@
             "_icons/*": ["./assets/icons/*"],
             "_images/*": ["./assets/images/*"],
             "_locales/*": ["./assets/locales/*"],
-            "_store/*": ["./src/store/*"]
+            "_store/*": ["./src/store/*"],
+            "_hooks/*": ["./src/hooks/*"]
         }
     },
     "exclude": ["node_modules", "dist"]

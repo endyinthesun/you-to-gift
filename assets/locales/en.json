@@ -6,7 +6,9 @@
         "account_authorization": "account authorization",
         "draws_filter": "draws filter",
         "draw": "draw",
-        "information": "information"
+        "information": "information",
+        "find_out_your_number": "find out your number",
+        "for": "for"
     },
     "modal_filter_screen": {
         "category": "category",
@@ -43,7 +45,7 @@
         "financial_competition": "Financial competition",
         "show_conditions": "show conditions",
         "attention": "attention!",
-        "competition_created_for_specific_region:": "The competition was created for a specific region:",
+        "competition_created_for_specific_region": "The competition was created for a specific region:",
         "to_participate_you_must": "To participate, you must have an open account at the time of the drawing. Having fulfilled all the conditions of this competition, you automatically become a participant!",
         "information_about_competition": "information about the competition",
         "number_of_participants": "Number of participants:",
@@ -55,9 +57,18 @@
         "got_it": "Got it"
     },
     "notification": {
-        "you_have_added_competition_to_your_favorites": "You've added competition to your favorites",
+        "you_have_added_competition_to_your_favorites": "You've added competition to favorites",
         "to_participate_meet_the_conditions": "To participate, meet the conditions",
         "type_of_reward": "Type of reward",
-        "choose_reward": "Choose a reward"
+        "choose_reward": "Choose a reward",
+        "press_back_again_to_exit_app": "Press \"Back\" again to exit app"
+    },
+    "find_number_screen": {
+        "participants": "participants",
+        "participant": "participant",
+        "find_out_your_competition_number": "find out your competition number",
+        "login_must_be_same_as_your_instagram_account": "The login must be the same as your Instagram account",
+        "enter_your_instagram_login": "Enter your Instagram login",
+        "we_need_at_hour_to_collect_all_data": "We need at least an hour,\nto collect all the data"
     }
 }

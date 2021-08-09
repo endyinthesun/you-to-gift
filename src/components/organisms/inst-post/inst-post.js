@@ -1,6 +1,6 @@
 //modules
 import React, {useState, useEffect} from 'react';
-import {View, Image, Text, ActivityIndicator, StyleSheet} from 'react-native';
+import {View, Text, ActivityIndicator} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 //SVGs

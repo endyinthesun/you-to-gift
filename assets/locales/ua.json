@@ -6,7 +6,9 @@
         "account_authorization": "авторизація акаунта",
         "draws_filter": "фільтр розіграшів",
         "draw": "розіграш",
-        "information": "інформація"
+        "information": "інформація",
+        "find_out_your_number": "дізнатися свій номер",
+        "for": "для"
     },
     "modal_filter_screen": {
         "category": "категорія",
@@ -58,6 +60,15 @@
         "you_have_added_competition_to_your_favorites": "Ви додали конкурс в обране",
         "to_participate_meet_the_conditions": "Щоб прийняти в ньому участь -\nвиконайте умови",
         "type_of_reward": "Тип нагороди",
-        "choose_reward": "Виберіть нагороду"
+        "choose_reward": "Виберіть нагороду",
+        "press_back_again_to_exit_app": "Натисніть \"Назад\" щоб вийти з додатку"
+    },
+    "find_number_screen": {
+        "participants": "учасників",
+        "participant": "участник",
+        "find_out_your_competition_number": "дізнатися свій номер в конкурсі",
+        "login_must_be_same_as_your_instagram_account": "Логін повинен повністю відповідати логіну акаунта в Instagram",
+        "enter_your_instagram_login": "Введіть логін Instagram",
+        "we_need_at_hour_to_collect_all_data": "Нам потрібна хоча б годинка,\nщоб зібрати всі дані"
     }
 }

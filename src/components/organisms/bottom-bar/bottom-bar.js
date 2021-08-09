@@ -1,6 +1,7 @@
 //modules
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {View, Animated, Easing, useWindowDimensions} from 'react-native';
+import {observer} from 'mobx-react-lite';
 
 //SVGs
 import MenuLong from '_icons/bottom-bar/menu-long.svg';
@@ -13,8 +14,14 @@ import {PADDING_HORIZONTAL_TAB_MENU} from '_styles/global';
 import {BOTTOM_BAR_GRADIENT} from '_styles/gradients';
 import {styles} from './styles';
 
-export default function BottomBar({state, descriptors, navigation}) {
-  const [bottomTabPosition, setBottomTabPosition] = useState(0);
+//store
+import {useStores} from '_store/index';
+
+export default observer(function BottomBar({state, descriptors, navigation}) {
+  // const [tabBarPosition, setTabBarPosition] = useState(0);
+
+  const {bottomTabBarStore} = useStores();
+  const {tabBarPosition, setTabBarPosition} = bottomTabBarStore;
 
   const windowWidth = useWindowDimensions().width;
   const widthRoute =
@@ -32,7 +39,7 @@ export default function BottomBar({state, descriptors, navigation}) {
         target: route.key,
         canPreventDefault: true,
       });
-      setBottomTabPosition(index);
+      setTabBarPosition(index);
       if (!isFocused && !event.defaultPrevented) {
         navigation.navigate(route.name);
       }
@@ -47,9 +54,10 @@ export default function BottomBar({state, descriptors, navigation}) {
       />
     );
   });
+
   useEffect(() => {
     const position =
-      widthRoute * bottomTabPosition +
+      widthRoute * tabBarPosition +
       widthRoute / 2 +
       PADDING_HORIZONTAL_TAB_MENU -
       433;
@@ -60,7 +68,8 @@ export default function BottomBar({state, descriptors, navigation}) {
       useNativeDriver: true,
     };
     Animated.timing(menuTranslateX, menuTranslateXConf).start();
-  }, [bottomTabPosition]);
+  }, [tabBarPosition]);
+
   return (
     <View style={styles.navContainer}>
       <BOTTOM_BAR_GRADIENT />
@@ -87,4 +96,4 @@ export default function BottomBar({state, descriptors, navigation}) {
       </View>
     </View>
   );
-}
+});
